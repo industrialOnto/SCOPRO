@@ -1,0 +1,2732 @@
+@prefix : <http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO> .
+
+<http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO> rdf:type owl:Ontology ;
+                                                               <http://purl.org/dc/elements/1.1/contributor> "Gabriela P. Henning"@en ,
+                                                                                                             "Horacio P. Leone"@en ,
+                                                                                                             "Marcela Vegetti" ;
+                                                               <http://purl.org/dc/elements/1.1/creator> "Alicia C. Böhm"@en ;
+                                                               <http://purl.org/dc/elements/1.1/title> "SCOPRO"@en ;
+                                                               <http://purl.org/dc/terms/license> "CreativeCommons V4.0 https://creativecommons.org/licenses/by/4.0/legalcode" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/contributor
+<http://purl.org/dc/elements/1.1/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/licence
+<http://purl.org/dc/elements/1.1/licence> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty ;
+                                   rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/licence> .
+
+
+###  http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#note
+<http://www.w3.org/2004/02/skos/core#note> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#IsTargetOf
+:IsTargetOf rdf:type owl:ObjectProperty ;
+            owl:inverseOf :isTargetedAt ;
+            rdfs:domain :Market ;
+            rdfs:range :Supply_Chain ;
+            rdfs:comment "inversa de isTargetAt" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#areaPerforms
+:areaPerforms rdf:type owl:ObjectProperty ;
+              rdfs:domain :Functional_Area ;
+              rdfs:range :Process .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#entails
+:entails rdf:type owl:ObjectProperty ;
+         owl:inverseOf :isEntailedBy ;
+         rdfs:domain :Process ;
+         rdfs:range :Utilization ;
+         rdfs:comment "Asociación entre un proceso y una de las utilizaciones que origina" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasBeforAsPart
+:hasBeforAsPart rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :hasTempRelatAsPart ;
+                rdf:type owl:FunctionalProperty ;
+                rdfs:domain :Composite_Temporal_Relationship ;
+                rdfs:range :Before .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasDependentOU
+:hasDependentOU rdf:type owl:ObjectProperty ;
+                owl:inverseOf :isDependentOUOf ;
+                rdfs:domain :Organizational_Unit ;
+                rdfs:range :Dependent_OU ;
+                rdfs:comment "" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasDestinationFacility
+:hasDestinationFacility rdf:type owl:ObjectProperty ;
+                        owl:inverseOf :isDestinationFacilityOf ;
+                        rdfs:domain :Transportation_ ;
+                        rdfs:range :Facility .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasDuringAsPart
+:hasDuringAsPart rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :hasTempRelatAsPart ;
+                 rdf:type owl:FunctionalProperty ;
+                 rdfs:domain :Composite_Temporal_Relationship ;
+                 rdfs:range :During .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasElement
+:hasElement rdf:type owl:ObjectProperty ;
+            rdfs:domain :Market ;
+            rdfs:range :Customer_Role .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasEqualAsPart
+:hasEqualAsPart rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :hasTempRelatAsPart ;
+                rdf:type owl:FunctionalProperty ;
+                rdfs:domain :Composite_Temporal_Relationship ;
+                rdfs:range :Equal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasFunctionalArea
+:hasFunctionalArea rdf:type owl:ObjectProperty ;
+                   owl:inverseOf :isFunctionalAreaOf ;
+                   rdfs:domain :Organizational_Unit ;
+                   rdfs:range :Functional_Area .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasFuntionalSubArea
+:hasFuntionalSubArea rdf:type owl:ObjectProperty ;
+                     owl:inverseOf :isFuntionalSubAreaOf ;
+                     rdfs:domain :Functional_Area ;
+                     rdfs:range :Functional_SubArea .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasMeetsAsPart
+:hasMeetsAsPart rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :hasTempRelatAsPart ;
+                rdf:type owl:FunctionalProperty ;
+                rdfs:domain :Composite_Temporal_Relationship ;
+                rdfs:range :Meets .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasMember
+:hasMember rdf:type owl:ObjectProperty ;
+           owl:inverseOf :isMemberOf ;
+           rdfs:domain :Supply_Chain ;
+           rdfs:range :Organizational_Unit_Role ;
+           rdfs:comment "Asociación entre una CS y una de las perspectivas de organización que es miembro de la cadena" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasOURole
+:hasOURole rdf:type owl:ObjectProperty ;
+           owl:inverseOf :isORoleOf ;
+           rdfs:domain :Organizational_Unit ;
+           rdfs:range :Organizational_Unit_Role ;
+           rdfs:comment "inversa de orgUnitPerspective" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasOverlapsAsPart
+:hasOverlapsAsPart rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :hasTempRelatAsPart ;
+                   rdf:type owl:FunctionalProperty ;
+                   rdfs:domain :Composite_Temporal_Relationship ;
+                   rdfs:range :Overlaps .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasResourceRole
+:hasResourceRole rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :isResourceRoleOf ;
+                 rdfs:domain :Resource ;
+                 rdfs:range :Resource_Role ;
+                 rdfs:comment "inversa de isResourceRoleOf" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasSourceFacility
+:hasSourceFacility rdf:type owl:ObjectProperty ;
+                   owl:inverseOf :isSourceFacilityOf ;
+                   rdfs:domain :Transportation_ ;
+                   rdfs:range :Facility .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasTempRelatAsPart
+:hasTempRelatAsPart rdf:type owl:ObjectProperty ;
+                    owl:inverseOf :isPartOfTempRelat ;
+                    rdfs:domain :Composite_Temporal_Relationship ;
+                    rdfs:range [ rdf:type owl:Class ;
+                                 owl:unionOf ( :Before
+                                               :During
+                                               :Equal
+                                               :Meets
+                                               :Overlaps
+                                             )
+                               ] ;
+                    rdfs:comment "Asociación entre una relación temporal compuesta y una de sus partes" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#involves
+:involves rdf:type owl:ObjectProperty ;
+          owl:inverseOf :isInvolvedIn ;
+          rdf:type owl:FunctionalProperty ;
+          rdfs:domain :Utilization ;
+          rdfs:range :Resource_Role ;
+          rdfs:comment "Asociación entre una utilización y el rol de recurso sobre el cual influye" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isComposedOfPE_ReserveInventoryAndDetermineDeliveryDate
+:isComposedOfPE_ReserveInventoryAndDetermineDeliveryDate rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf :isComprisedOfPE ;
+                                                         rdfs:domain :Deliver_Stocked_Product ;
+                                                         rdfs:range :Reserve_Inventory_and_Determine_Delivery_Date .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isComposedOfPE_ShipProduct
+:isComposedOfPE_ShipProduct rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf :isComprisedOfPE ;
+                            rdfs:domain :Deliver_Stocked_Product ;
+                            rdfs:range :Ship_Product .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isComprisedOfPE
+:isComprisedOfPE rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :isComprisedOfSubProcess ;
+                 owl:inverseOf :isPartOfBP ;
+                 rdfs:domain :Business_Process ;
+                 rdfs:range :Process_Element ;
+                 rdfs:comment "Asociación de agregación entre un proceso de negocio y uno de los elementos de proceso que lo componen" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isComprisedOfST
+:isComprisedOfST rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :isComprisedOfSubProcess ;
+                 owl:inverseOf :isPartOfCT ;
+                 rdfs:domain :Composite_Task ;
+                 rdfs:range :Task ;
+                 rdfs:comment "inversa de isPartOfCT" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isComprisedOfSubProcess
+:isComprisedOfSubProcess rdf:type owl:ObjectProperty ;
+                         owl:inverseOf :isSubProcessOf ;
+                         rdfs:domain :Process ;
+                         rdfs:range :Process ;
+                         rdfs:comment "inversa de isSubProcessOf" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isComprisedOfTask
+:isComprisedOfTask rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :isComprisedOfSubProcess ;
+                   owl:inverseOf :isPartOfPE ;
+                   rdfs:domain :Process_Element ;
+                   rdfs:range :Task ;
+                   rdfs:comment "Asociación de agregación entre un elemento de proceso y una de las tareas que lo componen" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isDependentOUOf
+:isDependentOUOf rdf:type owl:ObjectProperty ,
+                          owl:FunctionalProperty ;
+                 rdfs:domain :Dependent_OU ;
+                 rdfs:range :Organizational_Unit .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isDependentSubOUOf
+:isDependentSubOUOf rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Dependent_OU ;
+                    rdfs:range :Dependent_OU .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isDestinationFacilityOf
+:isDestinationFacilityOf rdf:type owl:ObjectProperty ;
+                         rdfs:domain :Facility ;
+                         rdfs:range :Transportation_ .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isEntailedBy
+:isEntailedBy rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain :Utilization ;
+              rdfs:range :Process ;
+              rdfs:comment "inversa de entails" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isFunctionalAreaOf
+:isFunctionalAreaOf rdf:type owl:ObjectProperty ,
+                             owl:FunctionalProperty ;
+                    rdfs:domain :Functional_Area ;
+                    rdfs:range :Organizational_Unit .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isFuntionalSubAreaOf
+:isFuntionalSubAreaOf rdf:type owl:ObjectProperty ,
+                               owl:FunctionalProperty ;
+                      rdfs:domain :Functional_SubArea ;
+                      rdfs:range :Functional_Area .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isInvolvedIn
+:isInvolvedIn rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain :Resource_Role ;
+              rdfs:range :Utilization ;
+              rdfs:comment "Inversa de involves" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isMemberOf
+:isMemberOf rdf:type owl:ObjectProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :Organizational_Unit_Role ;
+            rdfs:range :Supply_Chain ;
+            rdfs:comment "inversa de hasMember" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isORoleOf
+:isORoleOf rdf:type owl:ObjectProperty ,
+                    owl:FunctionalProperty ,
+                    owl:AsymmetricProperty ;
+           rdfs:domain :Organizational_Unit_Role ;
+           rdfs:range :Organizational_Unit ;
+           rdfs:comment "Asociación entre un rol de una organización y la unidad organizacional que tiene como rol dicha perspectiva" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isPartOfBP
+:isPartOfBP rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :isSubProcessOf ;
+            rdfs:domain :Process_Element ;
+            rdfs:range :Business_Process .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isPartOfCT
+:isPartOfCT rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :isSubProcessOf ;
+            rdfs:domain :Task ;
+            rdfs:range :Composite_Task ;
+            rdfs:comment "Asociación de agregación entre una tarea y una tarea compuesta de la cual es parte" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isPartOfPE
+:isPartOfPE rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :isSubProcessOf ;
+            rdfs:domain :Task ;
+            rdfs:range :Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isPartOfTempRelat
+:isPartOfTempRelat rdf:type owl:ObjectProperty ;
+                   rdfs:domain [ rdf:type owl:Class ;
+                                 owl:unionOf ( :Before
+                                               :During
+                                               :Equal
+                                               :Meets
+                                               :Overlaps
+                                             )
+                               ] ;
+                   rdfs:range :Composite_Temporal_Relationship .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isPerformedBy
+:isPerformedBy rdf:type owl:ObjectProperty ;
+               owl:inverseOf :performs ;
+               rdfs:domain :Process ;
+               rdfs:range :Organizational_Unit_Role ;
+               rdfs:comment "Inversa de performs" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isPerformedBySubArea
+:isPerformedBySubArea rdf:type owl:ObjectProperty ;
+                      owl:inverseOf :subAreaPerforms ;
+                      rdfs:domain :Task ;
+                      rdfs:range :Functional_SubArea .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isProvidedBy
+:isProvidedBy rdf:type owl:ObjectProperty ;
+              owl:inverseOf :provides ;
+              rdfs:domain :Material_Resource ;
+              rdfs:range :Supply_Chain ;
+              rdfs:comment "Asociación entre un producto y una de las cadenas de suministros que lo proveen" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isRelativeTo
+:isRelativeTo rdf:type owl:ObjectProperty ;
+              owl:inverseOf :withRespectTo ;
+              rdfs:domain :Process ;
+              rdfs:range :Temporal_Relationship .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isResourceRObtainedBy
+:isResourceRObtainedBy rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :obtainsResourceR ;
+                       rdf:type owl:FunctionalProperty ;
+                       rdfs:domain :Resource_Role ;
+                       rdfs:range :Organizational_Unit .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isResourceRProvidedBy
+:isResourceRProvidedBy rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :providesResourceR ;
+                       rdf:type owl:FunctionalProperty ;
+                       rdfs:domain :Resource_Role ;
+                       rdfs:range :Organizational_Unit .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isResourceRoleOf
+:isResourceRoleOf rdf:type owl:ObjectProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain :Resource_Role ;
+                  rdfs:range :Resource ;
+                  rdfs:comment "Asociación entre un rol de recurso y el recurso" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isRestrainedBy
+:isRestrainedBy rdf:type owl:ObjectProperty ;
+                owl:inverseOf :restrains ;
+                rdfs:domain :Process ;
+                rdfs:range :Temporal_Relationship ;
+                rdfs:comment "Asociación entre un proceso y una relación temporal que lo vincula con otro proceso" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isSourceFacilityOf
+:isSourceFacilityOf rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Facility ;
+                    rdfs:range :Transportation_ .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isSubProcessOf
+:isSubProcessOf rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty ,
+                         owl:AsymmetricProperty ,
+                         owl:IrreflexiveProperty ;
+                rdfs:domain :Process ;
+                rdfs:range :Process ;
+                rdfs:comment "Relación de agregación entre un proceso y uno de los procesos de los cual es parte" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isTargetedAt
+:isTargetedAt rdf:type owl:ObjectProperty ;
+              rdfs:domain :Supply_Chain ;
+              rdfs:range :Market ;
+              rdfs:comment "Asociación entre una cadena de suministros y uno de los mercados a los que pretende servir" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#materializesProcess
+:materializesProcess rdf:type owl:ObjectProperty ,
+                              owl:FunctionalProperty ,
+                              owl:AsymmetricProperty ;
+                     rdfs:domain :Process_Occurrence ;
+                     rdfs:range :Process .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#obtainsResourceR
+:obtainsResourceR rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Organizational_Unit ;
+                  rdfs:range :Resource_Role .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#performs
+:performs rdf:type owl:ObjectProperty ;
+          rdfs:domain :Organizational_Unit_Role ;
+          rdfs:range :Process ;
+          rdfs:comment "Asociación entre una perspectiva de la organización y uno de los procesos que ésta ejecuta" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#provides
+:provides rdf:type owl:ObjectProperty ;
+          rdfs:domain :Supply_Chain ;
+          rdfs:range :Material_Resource ;
+          rdfs:comment "Inversa de isProvidedBy" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#providesResourceR
+:providesResourceR rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Organizational_Unit ;
+                   rdfs:range :Resource_Role .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#restrains
+:restrains rdf:type owl:ObjectProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain :Temporal_Relationship ;
+           rdfs:range :Process ;
+           rdfs:comment "inversa de isRestrainedBy" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#subAreaPerforms
+:subAreaPerforms rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Functional_SubArea ;
+                 rdfs:range :Task .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#withRespectTo
+:withRespectTo rdf:type owl:ObjectProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain :Temporal_Relationship ;
+               rdfs:range :Process ;
+               rdfs:comment "Asociación entre una relación temporal y el proceso respecto al cual se restringe el orden temporal de otro proceso" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Actualization
+:Actualization rdf:type owl:Class ;
+               rdfs:subClassOf :Information_RR ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :isInvolvedIn ;
+                                 owl:allValuesFrom :Modification
+                               ] ;
+               rdfs:comment "Rol de la información que es requerida para la ejecución de un proceso, o alguna parte del mismo, y que como resultado de la ejecución sufre alguna modificación" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Atomic_Task
+:Atomic_Task rdf:type owl:Class ;
+             rdfs:subClassOf :Task ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :isComprisedOfSubProcess ;
+                               owl:qualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :Process
+                             ] ;
+             owl:disjointWith :Composite_Task ;
+             rdfs:comment "Tarea que no se descompone en otras tareas" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Atomic_Temporal_Relationship
+:Atomic_Temporal_Relationship rdf:type owl:Class ;
+                              rdfs:subClassOf :Temporal_Relationship ,
+                                              [ rdf:type owl:Class ;
+                                                owl:unionOf ( [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                                                       owl:complementOf [ rdf:type owl:Restriction ;
+                                                                                                          owl:onProperty :restrains ;
+                                                                                                          owl:someValuesFrom :Process
+                                                                                                        ]
+                                                                                     ]
+                                                                                     [ rdf:type owl:Class ;
+                                                                                       owl:complementOf [ rdf:type owl:Restriction ;
+                                                                                                          owl:onProperty :withRespectTo ;
+                                                                                                          owl:someValuesFrom :Process
+                                                                                                        ]
+                                                                                     ]
+                                                                                   ) ;
+                                                                rdf:type owl:Class
+                                                              ]
+                                                              [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty :restrains ;
+                                                                                       owl:someValuesFrom :Process
+                                                                                     ]
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty :withRespectTo ;
+                                                                                       owl:someValuesFrom :Process
+                                                                                     ]
+                                                                                   ) ;
+                                                                rdf:type owl:Class
+                                                              ]
+                                                            )
+                                              ] ,
+                                              [ rdf:type owl:Class ;
+                                                owl:complementOf [ owl:intersectionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                                 owl:onProperty :restrains ;
+                                                                                                                 owl:someValuesFrom :Process
+                                                                                                               ]
+                                                                                                               [ rdf:type owl:Restriction ;
+                                                                                                                 owl:onProperty :withRespectTo ;
+                                                                                                                 owl:someValuesFrom :Process
+                                                                                                               ]
+                                                                                                             ) ;
+                                                                                          rdf:type owl:Class
+                                                                                        ]
+                                                                                        [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty :isPartOfTempRelat ;
+                                                                                          owl:someValuesFrom :Composite_Temporal_Relationship
+                                                                                        ]
+                                                                                      ) ;
+                                                                   rdf:type owl:Class
+                                                                 ]
+                                              ] ;
+                              owl:disjointWith :Composite_Temporal_Relationship ;
+                              rdfs:comment "Relación temporal entre dos procesos mediante la cual el espacio de tiempo de ejecución de uno de ellos se restringe con respecto a la realización del otro. Una relación temporal atómica no está compuesta por otras relaciones temporales" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Before
+:Before rdf:type owl:Class ;
+        rdfs:subClassOf :Atomic_Temporal_Relationship ;
+        owl:disjointWith :During ,
+                         :Equal ,
+                         :Meets ,
+                         :Overlaps ;
+        rdfs:comment "Relación temporal atómica entre dos procesos que prescribe que el primero de los procesos debe terminar antes que comience el segundo" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Branch
+:Branch rdf:type owl:Class ;
+        rdfs:subClassOf :Dependent_OU .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Broker_Role
+:Broker_Role rdf:type owl:Class ;
+             rdfs:subClassOf :Intermediary_Role .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Business_Group
+:Business_Group rdf:type owl:Class ;
+                rdfs:subClassOf :Independent_OU ;
+                owl:disjointWith :Company ,
+                                 :Corporation ,
+                                 :Enterprise ,
+                                 :Society .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Business_Process
+:Business_Process rdf:type owl:Class ;
+                  owl:equivalentClass [ rdf:type owl:Restriction ;
+                                        owl:onProperty :isComprisedOfSubProcess ;
+                                        owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :Process_Element
+                                      ] ;
+                  rdfs:subClassOf :Process ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :isComprisedOfSubProcess ;
+                                    owl:allValuesFrom :Process_Element
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :isSubProcessOf ;
+                                    owl:qualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :Process
+                                  ] ;
+                  owl:disjointWith :Process_Element ,
+                                   :Task ;
+                  rdfs:comment "Estructura lógica de actividades de agregado de valor, diseñada para la acción, enfocada en la satisfacción de los clientes finales y en la gestión de flujos relativos a productos, información, activos financieros, conocimiento e ideas" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Business_Unit
+:Business_Unit rdf:type owl:Class ;
+               rdfs:subClassOf :Dependent_OU .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Capital_Asset
+:Capital_Asset rdf:type owl:Class ;
+               rdfs:subClassOf :Material_Resource .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Carrier_Role
+:Carrier_Role rdf:type owl:Class ;
+              rdfs:subClassOf :Service_Provider_Role ,
+                              [ rdf:type owl:Class ;
+                                owl:complementOf [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :performs ;
+                                                   owl:someValuesFrom :Source
+                                                 ]
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :performs ;
+                                owl:someValuesFrom :Deliver
+                              ] .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Company
+:Company rdf:type owl:Class ;
+         rdfs:subClassOf :Independent_OU ;
+         owl:disjointWith :Corporation ,
+                          :Enterprise ,
+                          :Society .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Composite_Task
+:Composite_Task rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                      owl:onProperty :isComprisedOfSubProcess ;
+                                      owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :Task
+                                    ] ;
+                rdfs:subClassOf :Task ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :isComprisedOfSubProcess ;
+                                  owl:allValuesFrom :Task
+                                ] ;
+                rdfs:comment "Tarea que posee como componentes a otras tareas" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Composite_Temporal_Relationship
+:Composite_Temporal_Relationship rdf:type owl:Class ;
+                                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :hasTempRelatAsPart ;
+                                                       owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                                       owl:onClass :Temporal_Relationship
+                                                     ] ;
+                                 rdfs:subClassOf :Temporal_Relationship ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :restrains ;
+                                                   owl:someValuesFrom :Process
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :withRespectTo ;
+                                                   owl:someValuesFrom :Process
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasTempRelatAsPart ;
+                                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onClass :Before
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasTempRelatAsPart ;
+                                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onClass :During
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasTempRelatAsPart ;
+                                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onClass :Equal
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasTempRelatAsPart ;
+                                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onClass :Meets
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasTempRelatAsPart ;
+                                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onClass :Overlaps
+                                                 ] ;
+                                 rdfs:comment "Relación temporal entre dos procesos compuesta por otras relaciones temporales. La ejecución de uno de los procesos se restringe con respecto a la realización del otro. El primero de los procesos debe cumplir, con respecto al segundo, con alguna de las relaciones temporales que forman parte de la relación temporal compuesta." .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Corporation
+:Corporation rdf:type owl:Class ;
+             rdfs:subClassOf :Independent_OU ;
+             owl:disjointWith :Enterprise ,
+                              :Society .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Creation
+:Creation rdf:type owl:Class ;
+          rdfs:subClassOf :Utilization ;
+          owl:disjointWith :Elimination ,
+                           :Material_Transfer ,
+                           :Modification ,
+                           :Use ;
+          rdfs:comment "Generación de un recurso durante un proceso" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Cross-docking_Facility
+:Cross-docking_Facility rdf:type owl:Class ;
+                        rdfs:subClassOf :Facility ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasResourceRole ;
+                                          owl:someValuesFrom :Cross-docking_Point
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasResourceRole ;
+                                          owl:allValuesFrom [ rdf:type owl:Class ;
+                                                              owl:unionOf ( :Cross-docking_Point
+                                                                            :Vehicle_Terminal
+                                                                          )
+                                                            ]
+                                        ] .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Cross-docking_Point
+:Cross-docking_Point rdf:type owl:Class ;
+                     rdfs:subClassOf :Facility_RR ;
+                     rdfs:comment """Rol de un establecimiento que se utiliza en un proceso para realizar la transferencia de la carga de un vehículo a otro sin apelar a un
+almacenamiento intermedio""" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Customer_Role
+:Customer_Role rdf:type owl:Class ;
+               rdfs:subClassOf :Organizational_Unit_Role ,
+                               [ rdf:type owl:Class ;
+                                 owl:complementOf [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :performs ;
+                                                    owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                         owl:unionOf ( :Deliver
+                                                                                       :Deliver_Return
+                                                                                       :Make
+                                                                                     )
+                                                                       ]
+                                                  ]
+                               ] ;
+               owl:disjointWith :Primary_Producer_Role ,
+                                :Secondary_Producer_Role ,
+                                :Service_Provider_Role ;
+               rdfs:comment "Rol que asume una unidad organizacional que, en su participación en una determinada cadena de suministros, realiza actividades vinculadas con la compra de bienes para uso, consumo o explotación" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#DR_Def_Product_Process_Element
+:DR_Def_Product_Process_Element rdf:type owl:Class ;
+                                rdfs:subClassOf :Deliver_Return_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#DR_Excess_Product_Process_Element
+:DR_Excess_Product_Process_Element rdf:type owl:Class ;
+                                   rdfs:subClassOf :Deliver_Return_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#DR_MRO_Product_Process_Element
+:DR_MRO_Product_Process_Element rdf:type owl:Class ;
+                                rdfs:subClassOf :Deliver_Return_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#D_E-t-O_Product_Process_Element
+:D_E-t-O_Product_Process_Element rdf:type owl:Class ;
+                                 rdfs:subClassOf :Deliver_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#D_M-t-O_Product_Process_Element
+:D_M-t-O_Product_Process_Element rdf:type owl:Class ;
+                                 rdfs:subClassOf :Deliver_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#D_R_Product_Process_Element
+:D_R_Product_Process_Element rdf:type owl:Class ;
+                             rdfs:subClassOf :Deliver_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#D_S_Product_Process_Element
+:D_S_Product_Process_Element rdf:type owl:Class ;
+                             rdfs:subClassOf :Deliver_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Dealer_Role
+:Dealer_Role rdf:type owl:Class ;
+             rdfs:subClassOf :Reseller_Role .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Defective_Product
+:Defective_Product rdf:type owl:Class ;
+                   rdfs:subClassOf :Material_Resource .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver
+:Deliver rdf:type owl:Class ;
+         rdfs:subClassOf :Business_Process ;
+         owl:disjointWith :Deliver_Return ,
+                          :Make ,
+                          :Plan ,
+                          :Source ,
+                          :Source_Return ;
+         rdfs:comment "Proceso que consiste en la gestión de órdenes de clientes, incluyendo la recepción de los pedidos y su validación, las actividades vinculadas a la entrega de los productos y la facturación" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Engineer-to-Order_Product
+:Deliver_Engineer-to-Order_Product rdf:type owl:Class ;
+                                   rdfs:subClassOf :Deliver ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :isComprisedOfSubProcess ;
+                                                     owl:allValuesFrom :D_E-t-O_Product_Process_Element
+                                                   ] ;
+                                   owl:disjointWith :Deliver_Make-to-Order_Product ,
+                                                    :Deliver_Retail_Product ,
+                                                    :Deliver_Stocked_Product ;
+                                   rdfs:comment "Proceso de entrega donde se acuerda, se da respuesta y se asignan recursos a una orden de un cliente que tiene requerimientos o especificaciones únicas" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Make-to-Order_Product
+:Deliver_Make-to-Order_Product rdf:type owl:Class ;
+                               rdfs:subClassOf :Deliver ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :isComprisedOfSubProcess ;
+                                                 owl:allValuesFrom :D_M-t-O_Product_Process_Element
+                                               ] ;
+                               owl:disjointWith :Deliver_Retail_Product ,
+                                                :Deliver_Stocked_Product ;
+                               rdfs:comment "Proceso de entrega de productos que son abastecidos, configurados, elaborados y/o ensamblados a partir de materiales estándar sin procesar, partes, ingredientes o subensambles, en respuesta a una orden en particular de un cliente" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Process_Element
+:Deliver_Process_Element rdf:type owl:Class ;
+                         rdfs:subClassOf :Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Retail_Product
+:Deliver_Retail_Product rdf:type owl:Class ;
+                        rdfs:subClassOf :Deliver ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :isComprisedOfSubProcess ;
+                                          owl:allValuesFrom :D_R_Product_Process_Element
+                                        ] ;
+                        owl:disjointWith :Deliver_Stocked_Product ;
+                        rdfs:comment "Proceso para adquirir bienes terminados, localizarlos en posiciones de stock, venderlos, cobrarlos y entregarlos, en un negocio donde se comercializan productos o servicios usando un procedimiento de punto de venta con capacidad de cobro" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Return
+:Deliver_Return rdf:type owl:Class ;
+                rdfs:subClassOf :Business_Process ;
+                owl:disjointWith :Make ,
+                                 :Plan ,
+                                 :Source ,
+                                 :Source_Return ;
+                rdfs:comment "Proceso que consiste en acordar con un cliente las condiciones de devolución de un producto, o lote del mismo, y la recepción en el lugar convenido" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Return_Defective_Product
+:Deliver_Return_Defective_Product rdf:type owl:Class ;
+                                  rdfs:subClassOf :Deliver_Return ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :isComprisedOfSubProcess ;
+                                                    owl:allValuesFrom :DR_Def_Product_Process_Element
+                                                  ] ;
+                                  owl:disjointWith :Deliver_Return_Excess_Product ,
+                                                   :Deliver_Return_MRO_Product ;
+                                  rdfs:comment "Proceso mediante el cual se gestiona la recepción de productos defectuosos remitidos por los clientes, se determina su disposición y su apropiado reemplazo. Se pueden considerar productos defectuosos aquéllos que no cumplen con las especificaciones (incluyendo no conformidad de la orden, tal como el retraso en la entrega o envío inapropiado)" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Return_Excess_Product
+:Deliver_Return_Excess_Product rdf:type owl:Class ;
+                               rdfs:subClassOf :Deliver_Return ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :isComprisedOfSubProcess ;
+                                                 owl:allValuesFrom :DR_Excess_Product_Process_Element
+                                               ] ;
+                               owl:disjointWith :Deliver_Return_MRO_Product ;
+                               rdfs:comment "Proceso mediante el cual se gestiona la recepción de productos devueltos por los clientes por encontrarse en exceso, envejecidos u obsoletos, de acuerdo a los términos y condiciones pactadas" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Return_MRO_Product
+:Deliver_Return_MRO_Product rdf:type owl:Class ;
+                            rdfs:subClassOf :Deliver_Return ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :isComprisedOfSubProcess ;
+                                              owl:allValuesFrom :DR_MRO_Product_Process_Element
+                                            ] ;
+                            rdfs:comment """Proceso mediante el cual se gestiona la recepción de productos o activos que son enviados por los clientes para su mantenimiento, reparación o revisión. Generalmente se espera que los activos que se gestionan a través de este
+proceso sean reacondicionados y que retornen al servicio""" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Return_Process_Element
+:Deliver_Return_Process_Element rdf:type owl:Class ;
+                                rdfs:subClassOf :Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Stocked_Product
+:Deliver_Stocked_Product rdf:type owl:Class ;
+                         rdfs:subClassOf :Deliver ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :isComprisedOfSubProcess ;
+                                           owl:allValuesFrom :D_S_Product_Process_Element
+                                         ] ;
+                         rdfs:comment "Proceso de entrega de productos de tipo estándar que son abastecidos o fabricados en base a una agregación de órdenes de clientes, a la proyección de la demanda o a parámetros de reabastecimiento de inventario" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Dependent_OU
+:Dependent_OU rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                    owl:onProperty :isDependentOUOf ;
+                                    owl:someValuesFrom :Organizational_Unit
+                                  ] ;
+              rdfs:subClassOf :Organizational_Unit ;
+              owl:disjointWith :Independent_OU ;
+              rdfs:comment "Unidad organizacional que está subordinada a otra, de la cual es dependiente o semi-dependiente, pero que tiene su propia administración y funciones" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Disposition_Excess_Product
+:Disposition_Excess_Product rdf:type owl:Class ;
+                            rdfs:subClassOf :SR_Excess_Product_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Distribution_Center
+:Distribution_Center rdf:type owl:Class ;
+                     rdfs:subClassOf :Facility ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasResourceRole ;
+                                       owl:someValuesFrom :Point_of_Storage
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasResourceRole ;
+                                       owl:allValuesFrom [ rdf:type owl:Class ;
+                                                           owl:unionOf ( :Point_of_Purchase
+                                                                         :Point_of_Storage
+                                                                         :Vehicle_Terminal
+                                                                       )
+                                                         ]
+                                     ] .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Distributor_Role
+:Distributor_Role rdf:type owl:Class ;
+                  rdfs:subClassOf :Reseller_Role .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#During
+:During rdf:type owl:Class ;
+        rdfs:subClassOf :Atomic_Temporal_Relationship ;
+        owl:disjointWith :Equal ,
+                         :Meets ,
+                         :Overlaps ;
+        rdfs:comment "Relación temporal atómica entre dos procesos que dispone que el primero de los procesos comienza y termina durante la ejecución del segundo" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#E-t-O_Process_Element
+:E-t-O_Process_Element rdf:type owl:Class ;
+                       rdfs:subClassOf :Make_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Elimination
+:Elimination rdf:type owl:Class ;
+             rdfs:subClassOf :Utilization ;
+             owl:disjointWith :Material_Transfer ,
+                              :Modification ,
+                              :Use ;
+             rdfs:comment "Remoción o consumo de un recurso durante un proceso" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Engineer-to-Order
+:Engineer-to-Order rdf:type owl:Class ;
+                   rdfs:subClassOf :Make ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isComprisedOfSubProcess ;
+                                     owl:someValuesFrom :Finalize_Production_Engineering
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isComprisedOfSubProcess ;
+                                     owl:someValuesFrom :Issue_Sourced_or_In-Process_Product
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isComprisedOfSubProcess ;
+                                     owl:someValuesFrom :Produce_and_Test
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isComprisedOfSubProcess ;
+                                     owl:someValuesFrom :Release_Product_to_Delivery
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isComprisedOfSubProcess ;
+                                     owl:allValuesFrom :E-t-O_Process_Element
+                                   ] ;
+                   owl:disjointWith :Make-to-Order ,
+                                    :Make-to-Stock ;
+                   rdfs:comment """Proceso de desarrollo, diseño, validación y elaboración de productos o servicios basados en los requerimientos de una orden de un cliente en particular. Las instrucciones de trabajo, las recetas y/o las rutas de los materiales deben definirse por completo o refinarse. Los productos son parcial o totalmente diseñados, rediseñados, manufacturados y/o ensamblados con
+una lista de materiales o receta que incluye una o más partes o ingredientes hechos a medida""" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Enterprise
+:Enterprise rdf:type owl:Class ;
+            rdfs:subClassOf :Independent_OU ;
+            owl:disjointWith :Society .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Equal
+:Equal rdf:type owl:Class ;
+       rdfs:subClassOf :Atomic_Temporal_Relationship ;
+       owl:disjointWith :Meets ,
+                        :Overlaps ;
+       rdfs:comment "Relación temporal atómica entre dos procesos que indica que el primero de los procesos se ejecuta al mismo tiempo que el segundo" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Equipment
+:Equipment rdf:type owl:Class ;
+           rdfs:subClassOf :Material_RR ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :isInvolvedIn ;
+                             owl:allValuesFrom :Use
+                           ] ;
+           owl:disjointWith :Load ,
+                            :Material_Input ,
+                            :Material_Output ,
+                            :Passive_Object ;
+           rdfs:comment """Rol de un recurso material que posibilita la realización de un proceso aportando medios mecánicos, electrónicos y/o informáticos para su
+ejecución""" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Executor
+:Executor rdf:type owl:Class ;
+          rdfs:subClassOf :Human_RR ;
+          rdfs:comment "Rol de una persona o grupo de personas que se encargan de realizar un proceso o parte del mismo" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Facility
+:Facility rdf:type owl:Class ;
+          rdfs:subClassOf :Resource ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasResourceRole ;
+                            owl:allValuesFrom :Facility_RR
+                          ] ;
+          owl:disjointWith :Financial_Resource ,
+                           :Human_Resource ,
+                           :Information_Resource ,
+                           :Material_Resource ;
+          rdfs:comment "Sitio donde se desarrollan actividades de una cadena de suministros" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Facility_RR
+:Facility_RR rdf:type owl:Class ;
+             rdfs:subClassOf :Resource_Role ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :isInvolvedIn ;
+                               owl:allValuesFrom :Use
+                             ] ;
+             owl:disjointWith :Financial_RR ,
+                              :Human_RR ,
+                              :Information_RR ,
+                              :Material_RR ;
+             rdfs:comment "Función con la cual un establecimiento participa en un proceso" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Finalize_Production_Engineering
+:Finalize_Production_Engineering rdf:type owl:Class ;
+                                 rdfs:subClassOf :E-t-O_Process_Element ;
+                                 owl:disjointWith :Issue_Sourced_or_In-Process_Product ,
+                                                  :Manage_Make_Equipements_and_Facilities ,
+                                                  :Manage_Make_Information ,
+                                                  :Manage_Make_Regulatory_Environment ,
+                                                  :Manage_Production_Network ,
+                                                  :Manage_Production_Performance ,
+                                                  :Manage_Production_Rules ,
+                                                  :Manage_Supply_Chain_Make_Risk ,
+                                                  :Manage_WIP_In-Process_Product ,
+                                                  :Manage_WIP_Transportation ,
+                                                  :Package ,
+                                                  :Produce_and_Test ,
+                                                  :Release_Product_to_Delivery ,
+                                                  :Schedule_Production_Activities ,
+                                                  :Stage_Finished_Product ,
+                                                  :Waste_Disposal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Finance
+:Finance rdf:type owl:Class ;
+         rdfs:subClassOf :Functional_Area .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Financial_RR
+:Financial_RR rdf:type owl:Class ;
+              rdfs:subClassOf :Resource_Role ;
+              owl:disjointWith :Human_RR ,
+                               :Information_RR ,
+                               :Material_RR ;
+              rdfs:comment "Función con la cual un recurso financiero participa en un proceso" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Financial_Resource
+:Financial_Resource rdf:type owl:Class ;
+                    rdfs:subClassOf :Resource ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasResourceRole ;
+                                      owl:allValuesFrom :Financial_RR
+                                    ] ;
+                    owl:disjointWith :Human_Resource ,
+                                     :Information_Resource ,
+                                     :Material_Resource ;
+                    rdfs:comment "Medio de retribución monetario, tal como efectivo, depósito bancario, cheque, etc., que puede ser empleado para la adquisición de bienes y servicios, y que participa en uno o más procesos de una cadena de suministros" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#FourthPL_Provider_Role
+:FourthPL_Provider_Role rdf:type owl:Class ;
+                        rdfs:subClassOf :Service_Provider_Role ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :performs ;
+                                          owl:someValuesFrom :Plan
+                                        ] .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Freight_Forwarder_Role
+:Freight_Forwarder_Role rdf:type owl:Class ;
+                        rdfs:subClassOf :Intermediary_Role .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Functional_Area
+:Functional_Area rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                       owl:onProperty :isFunctionalAreaOf ;
+                                       owl:someValuesFrom :Organizational_Unit
+                                     ] ;
+                 rdfs:subClassOf :SC_Entity ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :areaPerforms ;
+                                   owl:someValuesFrom :Process
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :areaPerforms ;
+                                   owl:allValuesFrom :Process_Element
+                                 ] ;
+                 owl:disjointWith :Functional_SubArea ,
+                                  :Organizational_Unit ,
+                                  :Process ,
+                                  :Process_Occurrence ,
+                                  :Resource ,
+                                  :Supply_Chain ;
+                 rdfs:comment "Agrupación de actividades que, dentro de una unidad organizacional, se ocupa de un tipo de tareas en particular, como contabilidad, marketing o producción" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Functional_SubArea
+:Functional_SubArea rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                          owl:onProperty :isFuntionalSubAreaOf ;
+                                          owl:someValuesFrom :Functional_Area
+                                        ] ;
+                    rdfs:subClassOf :SC_Entity ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :subAreaPerforms ;
+                                      owl:someValuesFrom :Process
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :subAreaPerforms ;
+                                      owl:allValuesFrom :Task
+                                    ] ;
+                    owl:disjointWith :Organizational_Unit ,
+                                     :Process ,
+                                     :Process_Occurrence ,
+                                     :Resource ,
+                                     :Supply_Chain ;
+                    rdfs:comment "Agrupación de actividades que forman parte de un área funcional y que se ocupan de un tipo de tareas en común dentro del área funcional de la cual forman parte" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Human_RR
+:Human_RR rdf:type owl:Class ;
+          rdfs:subClassOf :Resource_Role ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :isInvolvedIn ;
+                            owl:allValuesFrom :Use
+                          ] ;
+          owl:disjointWith :Information_RR ,
+                           :Material_RR ;
+          rdfs:comment "Función con la cual una persona o un grupo de personas participa en un proceso" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Human_Resource
+:Human_Resource rdf:type owl:Class ;
+                rdfs:subClassOf :Resource ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasResourceRole ;
+                                  owl:allValuesFrom :Human_RR
+                                ] ;
+                owl:disjointWith :Information_Resource ,
+                                 :Material_Resource ;
+                rdfs:comment "Persona o grupo de personas que participan en uno o más procesos de una cadena de suministros" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify_Excess_Product_Condition
+:Identify_Excess_Product_Condition rdf:type owl:Class ;
+                                   rdfs:subClassOf :SR_Excess_Product_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Independent_OU
+:Independent_OU rdf:type owl:Class ;
+                rdfs:subClassOf :Organizational_Unit ;
+                rdfs:comment "Unidad organizacional autónoma de la que dependen, de existir, todas las divisiones, filiales, sucursales, u otros componentes organizacionales, principales o secundarios de un negocio" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Information_RR
+:Information_RR rdf:type owl:Class ;
+                rdfs:subClassOf :Resource_Role ;
+                owl:disjointWith :Material_RR ;
+                rdfs:comment "Función con la cual un recurso de información participa en un proceso" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Information_Resource
+:Information_Resource rdf:type owl:Class ;
+                      rdfs:subClassOf :Resource ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :hasResourceRole ;
+                                        owl:allValuesFrom :Information_RR
+                                      ] ;
+                      owl:disjointWith :Material_Resource ;
+                      rdfs:comment """Datos, información o conocimientos que participan en uno o más procesos
+de una cadena de suministros""" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Input
+:Input rdf:type owl:Class ;
+       rdfs:subClassOf :Information_RR ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :isInvolvedIn ;
+                         owl:allValuesFrom [ rdf:type owl:Class ;
+                                             owl:unionOf ( :Elimination
+                                                           :Use
+                                                         )
+                                           ]
+                       ] ;
+       rdfs:comment "Rol de la información que es requerida para la ejecución de un proceso, o alguna parte del mismo. En el proceso la información se elimina o no sufre modificaciones" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Intermediary_Role
+:Intermediary_Role rdf:type owl:Class ;
+                   rdfs:subClassOf :Service_Provider_Role .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Intermodal_Seller_Role
+:Intermodal_Seller_Role rdf:type owl:Class ;
+                        rdfs:subClassOf :Intermediary_Role .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Issue_Sourced_or_In-Process_Product
+:Issue_Sourced_or_In-Process_Product rdf:type owl:Class ;
+                                     rdfs:subClassOf :E-t-O_Process_Element ;
+                                     owl:disjointWith :Manage_Make_Equipements_and_Facilities ,
+                                                      :Manage_Make_Information ,
+                                                      :Manage_Make_Regulatory_Environment ,
+                                                      :Manage_Production_Network ,
+                                                      :Manage_Production_Performance ,
+                                                      :Manage_Production_Rules ,
+                                                      :Manage_Supply_Chain_Make_Risk ,
+                                                      :Manage_WIP_In-Process_Product ,
+                                                      :Manage_WIP_Transportation ,
+                                                      :Package ,
+                                                      :Produce_and_Test ,
+                                                      :Release_Product_to_Delivery ,
+                                                      :Schedule_Production_Activities ,
+                                                      :Stage_Finished_Product ,
+                                                      :Waste_Disposal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Load
+:Load rdf:type owl:Class ;
+      rdfs:subClassOf :Material_RR ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :isInvolvedIn ;
+                        owl:allValuesFrom :Material_Transfer
+                      ] ;
+      owl:disjointWith :Material_Input ,
+                       :Material_Output ,
+                       :Passive_Object ;
+      rdfs:comment "Rol de un recurso material que es trasladado durante un proceso" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Load_Product_and_Generate_Shipping_Docs
+:Load_Product_and_Generate_Shipping_Docs rdf:type owl:Class ;
+                                         rdfs:subClassOf :D_S_Product_Process_Element ;
+                                         owl:disjointWith :Pick_Product ,
+                                                          :Receive_Enter_and_Validate_Order ,
+                                                          :Receive_Product_from_Source_or_Make ,
+                                                          :Receive_and_Verify_Product_by_Customer ,
+                                                          :Reserve_Inventory_and_Determine_Delivery_Date ,
+                                                          :Ship_Product .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Logistics
+:Logistics rdf:type owl:Class ;
+           rdfs:subClassOf :Functional_Area .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#M-t-O_Process_Element
+:M-t-O_Process_Element rdf:type owl:Class ;
+                       rdfs:subClassOf :Make_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#M-t-S_Process_Element
+:M-t-S_Process_Element rdf:type owl:Class ;
+                       rdfs:subClassOf :Make_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Make
+:Make rdf:type owl:Class ;
+      rdfs:subClassOf :Business_Process ;
+      owl:disjointWith :Plan ,
+                       :Source ,
+                       :Source_Return ;
+      rdfs:comment "Proceso que agrega valor a recursos por medio del cultivo, cría, extracción, u otro tipo de explotación de recursos naturales, a través de actividades de procesamiento físico, físico-químico, biotecnológico, etc. y/o de ensamblado" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Make-to-Order
+:Make-to-Order rdf:type owl:Class ;
+               rdfs:subClassOf :Make ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :isComprisedOfSubProcess ;
+                                 owl:allValuesFrom :M-t-O_Process_Element
+                               ] ;
+               owl:disjointWith :Make-to-Stock ;
+               rdfs:comment "Proceso de manufactura con el que se generan productos que deben ser completados, ensamblados, configurados o elaborados, en respuesta a la orden de un cliente y de acuerdo a sus requerimientos. El proceso incluye la programación de las operaciones de producción, pero no involucra nuevos desarrollos ingenieriles. El proceso incluye la especificación del producto y la reserva de los recursos necesarios para obtenerlo" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Make-to-Stock
+:Make-to-Stock rdf:type owl:Class ;
+               rdfs:subClassOf :Make ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :isComprisedOfSubProcess ;
+                                 owl:allValuesFrom :M-t-S_Process_Element
+                               ] ;
+               rdfs:comment "Proceso de manufactura con el que se generan productos estándar que no requieren de adaptaciones o particularizaciones de acuerdo a requerimientos de los clientes. El proceso puede completarse antes que los productos sean solicitados por los clientes y, generalmente, se realiza a partir de una programación basada en los pronósticos de ventas. No se necesita ninguna referencia o detalle de los requerimientos de los clientes durante el proceso, ni se requiere individualizar los productos" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Make_Process_Element
+:Make_Process_Element rdf:type owl:Class ;
+                      rdfs:subClassOf :Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Manage_Make_Equipements_and_Facilities
+:Manage_Make_Equipements_and_Facilities rdf:type owl:Class ;
+                                        rdfs:subClassOf :E-t-O_Process_Element ;
+                                        owl:disjointWith :Manage_Make_Information ,
+                                                         :Manage_Make_Regulatory_Environment ,
+                                                         :Manage_Production_Network ,
+                                                         :Manage_Production_Performance ,
+                                                         :Manage_Production_Rules ,
+                                                         :Manage_Supply_Chain_Make_Risk ,
+                                                         :Manage_WIP_In-Process_Product ,
+                                                         :Manage_WIP_Transportation ,
+                                                         :Package ,
+                                                         :Produce_and_Test ,
+                                                         :Release_Product_to_Delivery ,
+                                                         :Schedule_Production_Activities ,
+                                                         :Stage_Finished_Product ,
+                                                         :Waste_Disposal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Manage_Make_Information
+:Manage_Make_Information rdf:type owl:Class ;
+                         rdfs:subClassOf :E-t-O_Process_Element ;
+                         owl:disjointWith :Manage_Make_Regulatory_Environment ,
+                                          :Manage_Production_Network ,
+                                          :Manage_Production_Performance ,
+                                          :Manage_Production_Rules ,
+                                          :Manage_Supply_Chain_Make_Risk ,
+                                          :Manage_WIP_In-Process_Product ,
+                                          :Manage_WIP_Transportation ,
+                                          :Package ,
+                                          :Produce_and_Test ,
+                                          :Release_Product_to_Delivery ,
+                                          :Schedule_Production_Activities ,
+                                          :Stage_Finished_Product ,
+                                          :Waste_Disposal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Manage_Make_Regulatory_Environment
+:Manage_Make_Regulatory_Environment rdf:type owl:Class ;
+                                    rdfs:subClassOf :E-t-O_Process_Element ;
+                                    owl:disjointWith :Manage_Production_Network ,
+                                                     :Manage_Production_Performance ,
+                                                     :Manage_Production_Rules ,
+                                                     :Manage_Supply_Chain_Make_Risk ,
+                                                     :Manage_WIP_In-Process_Product ,
+                                                     :Manage_WIP_Transportation ,
+                                                     :Package ,
+                                                     :Produce_and_Test ,
+                                                     :Release_Product_to_Delivery ,
+                                                     :Schedule_Production_Activities ,
+                                                     :Stage_Finished_Product ,
+                                                     :Waste_Disposal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Manage_Production_Network
+:Manage_Production_Network rdf:type owl:Class ;
+                           rdfs:subClassOf :E-t-O_Process_Element ;
+                           owl:disjointWith :Manage_Production_Performance ,
+                                            :Manage_Production_Rules ,
+                                            :Manage_Supply_Chain_Make_Risk ,
+                                            :Manage_WIP_In-Process_Product ,
+                                            :Manage_WIP_Transportation ,
+                                            :Package ,
+                                            :Produce_and_Test ,
+                                            :Release_Product_to_Delivery ,
+                                            :Schedule_Production_Activities ,
+                                            :Stage_Finished_Product ,
+                                            :Waste_Disposal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Manage_Production_Performance
+:Manage_Production_Performance rdf:type owl:Class ;
+                               rdfs:subClassOf :E-t-O_Process_Element ;
+                               owl:disjointWith :Manage_Production_Rules ,
+                                                :Manage_Supply_Chain_Make_Risk ,
+                                                :Manage_WIP_In-Process_Product ,
+                                                :Manage_WIP_Transportation ,
+                                                :Package ,
+                                                :Produce_and_Test ,
+                                                :Release_Product_to_Delivery ,
+                                                :Schedule_Production_Activities ,
+                                                :Stage_Finished_Product ,
+                                                :Waste_Disposal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Manage_Production_Rules
+:Manage_Production_Rules rdf:type owl:Class ;
+                         rdfs:subClassOf :E-t-O_Process_Element ;
+                         owl:disjointWith :Manage_Supply_Chain_Make_Risk ,
+                                          :Manage_WIP_In-Process_Product ,
+                                          :Manage_WIP_Transportation ,
+                                          :Package ,
+                                          :Produce_and_Test ,
+                                          :Release_Product_to_Delivery ,
+                                          :Schedule_Production_Activities ,
+                                          :Stage_Finished_Product ,
+                                          :Waste_Disposal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Manage_Supply_Chain_Make_Risk
+:Manage_Supply_Chain_Make_Risk rdf:type owl:Class ;
+                               rdfs:subClassOf :E-t-O_Process_Element ;
+                               owl:disjointWith :Manage_WIP_In-Process_Product ,
+                                                :Manage_WIP_Transportation ,
+                                                :Package ,
+                                                :Produce_and_Test ,
+                                                :Release_Product_to_Delivery ,
+                                                :Schedule_Production_Activities ,
+                                                :Stage_Finished_Product ,
+                                                :Waste_Disposal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Manage_WIP_In-Process_Product
+:Manage_WIP_In-Process_Product rdf:type owl:Class ;
+                               rdfs:subClassOf :E-t-O_Process_Element ;
+                               owl:disjointWith :Manage_WIP_Transportation ,
+                                                :Package ,
+                                                :Produce_and_Test ,
+                                                :Release_Product_to_Delivery ,
+                                                :Schedule_Production_Activities ,
+                                                :Stage_Finished_Product ,
+                                                :Waste_Disposal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Manage_WIP_Transportation
+:Manage_WIP_Transportation rdf:type owl:Class ;
+                           rdfs:subClassOf :E-t-O_Process_Element ;
+                           owl:disjointWith :Package ,
+                                            :Produce_and_Test ,
+                                            :Release_Product_to_Delivery ,
+                                            :Schedule_Production_Activities ,
+                                            :Stage_Finished_Product ,
+                                            :Waste_Disposal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Market
+:Market rdf:type owl:Class ;
+        rdfs:subClassOf owl:Thing ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasElement ;
+                          owl:someValuesFrom :Customer_Role
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasElement ;
+                          owl:allValuesFrom :Customer_Role
+                        ] .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Marketing
+:Marketing rdf:type owl:Class ;
+           rdfs:subClassOf :Functional_Area .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Material_Input
+:Material_Input rdf:type owl:Class ;
+                rdfs:subClassOf :Material_RR ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :isInvolvedIn ;
+                                  owl:allValuesFrom :Elimination
+                                ] ;
+                owl:disjointWith :Material_Output ,
+                                 :Passive_Object ;
+                rdfs:comment "Rol de un recurso material que participa en un proceso incorporándose en otro bien o transformándose" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Material_Movement_Eq
+:Material_Movement_Eq rdf:type owl:Class ;
+                      rdfs:subClassOf :Equipment .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Material_Output
+:Material_Output rdf:type owl:Class ;
+                 rdfs:subClassOf :Material_RR ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :isInvolvedIn ;
+                                   owl:allValuesFrom [ rdf:type owl:Class ;
+                                                       owl:unionOf ( :Creation
+                                                                     :Modification
+                                                                   )
+                                                     ]
+                                 ] ;
+                 owl:disjointWith :Organizational_Unit ,
+                                  :Passive_Object ;
+                 rdfs:comment "Rol de un recurso material que se obtiene como resultado de la ejecución de un proceso, ya sea por su creación a partir de otros materiales o por la modificación del mismo" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Material_RR
+:Material_RR rdf:type owl:Class ;
+             rdfs:subClassOf :Resource_Role ;
+             rdfs:comment "Función con la cual un recurso material participa en un proceso" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Material_Resource
+:Material_Resource rdf:type owl:Class ;
+                   rdfs:subClassOf :Resource ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasResourceRole ;
+                                     owl:allValuesFrom :Material_RR
+                                   ] ;
+                   rdfs:comment """Recurso físico que participa en uno o más procesos de una cadena de
+suministros""" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Material_Transfer
+:Material_Transfer rdf:type owl:Class ;
+                   rdfs:subClassOf :Utilization ;
+                   owl:disjointWith :Modification ,
+                                    :Use ;
+                   rdfs:comment "Traslado de un recurso entre dos localizaciones durante un proceso" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Meets
+:Meets rdf:type owl:Class ;
+       rdfs:subClassOf :Atomic_Temporal_Relationship ;
+       owl:disjointWith :Overlaps ;
+       rdfs:comment "Relación temporal atómica entre dos procesos que determina que el primero de los procesos termina justo cuando comienza el segundo" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Modification
+:Modification rdf:type owl:Class ;
+              rdfs:subClassOf :Utilization ;
+              owl:disjointWith :Use ;
+              rdfs:comment "Alteración de las propiedades de un recurso durante un proceso" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Movement
+:Movement rdf:type owl:Class ;
+          rdfs:subClassOf :Material_Transfer ;
+          owl:disjointWith :Transportation_ ;
+          rdfs:comment "Traslado de un recurso durante un proceso entre dos localizaciones situadas dentro de un mismo establecimiento" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Multimodal_Terminal
+:Multimodal_Terminal rdf:type owl:Class ;
+                     rdfs:subClassOf :Terminal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Organizational_Unit
+:Organizational_Unit rdf:type owl:Class ;
+                     owl:equivalentClass [ rdf:type owl:Class ;
+                                           owl:unionOf ( :Dependent_OU
+                                                         :Independent_OU
+                                                       )
+                                         ] ;
+                     rdfs:subClassOf :SC_Entity ;
+                     owl:disjointWith :Process ,
+                                      :Process_Occurrence ,
+                                      :Resource ,
+                                      :Supply_Chain ;
+                     rdfs:comment "Empresa, organización, compañía, o alguna parte de ellas, que tiene administración y funciones propias" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Organizational_Unit_Role
+:Organizational_Unit_Role rdf:type owl:Class ;
+                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                owl:onProperty :isORoleOf ;
+                                                owl:someValuesFrom :Organizational_Unit
+                                              ] ;
+                          rdfs:subClassOf :SC_Entity ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :isMemberOf ;
+                                            owl:someValuesFrom :Supply_Chain
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :performs ;
+                                            owl:someValuesFrom :Process
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :performs ;
+                                            owl:allValuesFrom :Process
+                                          ] ;
+                          rdfs:comment "Funcionalidad que asume una unidad organizacional en su participación en una dada cadena de suministros en particular" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Output
+:Output rdf:type owl:Class ;
+        rdfs:subClassOf :Information_RR ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :isInvolvedIn ;
+                          owl:allValuesFrom :Creation
+                        ] ;
+        rdfs:comment "Rol de la información que resulta de la realización de un proceso y que no existía antes de la ejecución del mismo" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Overlaps
+:Overlaps rdf:type owl:Class ;
+          rdfs:subClassOf :Atomic_Temporal_Relationship ;
+          rdfs:comment "Relación temporal atómica entre dos procesos que establece que el primero de los procesos comienza antes que el segundo y termina durante su transcurso" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Package
+:Package rdf:type owl:Class ;
+         rdfs:subClassOf :E-t-O_Process_Element ;
+         owl:disjointWith :Produce_and_Test ,
+                          :Release_Product_to_Delivery ,
+                          :Schedule_Production_Activities ,
+                          :Stage_Finished_Product ,
+                          :Waste_Disposal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Passive_Object
+:Passive_Object rdf:type owl:Class ;
+                rdfs:subClassOf :Material_RR ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :isInvolvedIn ;
+                                  owl:allValuesFrom :Use
+                                ] ;
+                rdfs:comment "Rol de un recurso material sobre el cual recaen las acciones del proceso que lo utiliza sin que sufra modificaciones físicas, físico-químicas ni de ubicación espacial" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Payment
+:Payment rdf:type owl:Class ;
+         rdfs:subClassOf :Financial_RR ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :isInvolvedIn ;
+                           owl:allValuesFrom [ rdf:type owl:Class ;
+                                               owl:unionOf ( :Creation
+                                                             :Use
+                                                           )
+                                             ]
+                         ] ;
+         owl:disjointWith :Proceeds ;
+         rdfs:comment "Rol de un recurso financiero que es desembolsado o emitido durante la ejecución de un proceso" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Pick_Product
+:Pick_Product rdf:type owl:Class ;
+              rdfs:subClassOf :D_S_Product_Process_Element ;
+              owl:disjointWith :Receive_Enter_and_Validate_Order ,
+                               :Receive_Product_from_Source_or_Make ,
+                               :Receive_and_Verify_Product_by_Customer ,
+                               :Reserve_Inventory_and_Determine_Delivery_Date ,
+                               :Ship_Product .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan
+:Plan rdf:type owl:Class ;
+      rdfs:subClassOf :Business_Process ;
+      owl:disjointWith :Source ,
+                       :Source_Return ;
+      rdfs:comment "Proceso que evalúa las necesidades operativas y los recursos disponibles en una cadena de suministros, o en alguna parte de ella, de manera de desarrollar un curso de acción que sea lo más adecuado posible para alcanzar los objetivos deseados" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_D_Process_Element
+:Plan_D_Process_Element rdf:type owl:Class ;
+                        rdfs:subClassOf :Plan_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_Deliver
+:Plan_Deliver rdf:type owl:Class ;
+              rdfs:subClassOf :Plan ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :isComprisedOfSubProcess ;
+                                owl:allValuesFrom :Plan_D_Process_Element
+                              ] ;
+              owl:disjointWith :Plan_Make ,
+                               :Plan_Return ,
+                               :Plan_Source ,
+                               :Plan_Supply_Chain ;
+              rdfs:comment "Proceso que evalúa las necesidades operativas y los recursos disponibles para desarrollar los procesos de entrega de una unidad organizacional durante un período de tiempo específico. Se prevé que dichos cursos de acción sean lo más adecuados posible para alcanzar los objetivos deseados" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_M_Process_Element
+:Plan_M_Process_Element rdf:type owl:Class ;
+                        rdfs:subClassOf :Plan_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_Make
+:Plan_Make rdf:type owl:Class ;
+           rdfs:subClassOf :Plan ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :isComprisedOfSubProcess ;
+                             owl:allValuesFrom :Plan_M_Process_Element
+                           ] ;
+           owl:disjointWith :Plan_Return ,
+                            :Plan_Source ,
+                            :Plan_Supply_Chain ;
+           rdfs:comment "Proceso que evalúa las necesidades operativas y los recursos disponibles para desarrollar los procesos de producción de una unidad organizacional durante un período de tiempo específico. Se espera que dichos cursos de acción sean lo más adecuados posible para alcanzar los objetivos deseados" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_Process_Element
+:Plan_Process_Element rdf:type owl:Class ;
+                      rdfs:subClassOf :Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_R_Process_Element
+:Plan_R_Process_Element rdf:type owl:Class ;
+                        rdfs:subClassOf :Plan_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_Return
+:Plan_Return rdf:type owl:Class ;
+             rdfs:subClassOf :Plan ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :isComprisedOfSubProcess ;
+                               owl:allValuesFrom :Plan_R_Process_Element
+                             ] ;
+             owl:disjointWith :Plan_Source ,
+                              :Plan_Supply_Chain ;
+             rdfs:comment "Proceso que evalúa las necesidades operativas y los recursos disponibles para gestionar los procesos de retorno en una unidad organizacional durante un período de tiempo específico. Se espera que dichos cursos de acción sean lo más adecuados posible para alcanzar los objetivos deseados" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_SC_Process_Element
+:Plan_SC_Process_Element rdf:type owl:Class ;
+                         rdfs:subClassOf :Plan_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_S_Process_Element
+:Plan_S_Process_Element rdf:type owl:Class ;
+                        rdfs:subClassOf :Plan_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_Source
+:Plan_Source rdf:type owl:Class ;
+             rdfs:subClassOf :Plan ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :isComprisedOfSubProcess ;
+                               owl:allValuesFrom :Plan_S_Process_Element
+                             ] ;
+             owl:disjointWith :Plan_Supply_Chain ;
+             rdfs:comment "Proceso que evalúa las necesidades operativas y los recursos disponibles para desarrollar los procesos de abastecimiento de una unidad organizacional durante un período de tiempo específico. Se prevé que dichos cursos de acción sean lo más adecuados posible para alcanzar los objetivos deseados" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_Supply_Chain
+:Plan_Supply_Chain rdf:type owl:Class ;
+                   rdfs:subClassOf :Plan ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isComprisedOfSubProcess ;
+                                     owl:allValuesFrom :Plan_SC_Process_Element
+                                   ] ;
+                   rdfs:comment "Proceso que evalúa las necesidades operativas y los recursos disponibles en una cadena de suministros, de manera de desarrollar cursos de acción durante un período de tiempo específico. Se espera que dichos cursos de acción sean lo más adecuados posible para alcanzar los objetivos deseados" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plant
+:Plant rdf:type owl:Class ;
+       rdfs:subClassOf :Facility ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasResourceRole ;
+                         owl:someValuesFrom :Production_Site
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasResourceRole ;
+                         owl:allValuesFrom [ rdf:type owl:Class ;
+                                             owl:unionOf ( :Point_of_Purchase
+                                                           :Point_of_Storage
+                                                           :Production_Site
+                                                           :Vehicle_Terminal
+                                                         )
+                                           ]
+                       ] .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Point_of_Purchase
+:Point_of_Purchase rdf:type owl:Class ;
+                   rdfs:subClassOf :Facility_RR ;
+                   rdfs:comment "Rol de un establecimiento que se utiliza en un proceso para realizar transacciones comerciales de compra" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Point_of_Storage
+:Point_of_Storage rdf:type owl:Class ;
+                  rdfs:subClassOf :Facility_RR ;
+                  rdfs:comment "Rol de un establecimiento que se utiliza en un proceso para realizar el almacenamiento de materiales" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Port_Terminal
+:Port_Terminal rdf:type owl:Class ;
+               rdfs:subClassOf :Terminal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Primary_Producer_Role
+:Primary_Producer_Role rdf:type owl:Class ;
+                       rdfs:subClassOf :Organizational_Unit_Role ,
+                                       [ rdf:type owl:Class ;
+                                         owl:complementOf [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :performs ;
+                                                            owl:someValuesFrom :Deliver_Retail_Product
+                                                          ]
+                                       ] ;
+                       owl:disjointWith :Secondary_Producer_Role ,
+                                        :Service_Provider_Role ;
+                       rdfs:comment "Rol que asume una unidad organizacional que, en su participación en una dada cadena de suministros, realiza actividades vinculadas a la producción primaria, tales como la agricultura, ganadería, pesca, minería, extracción de combustibles fósiles, etc." .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Proceeds
+:Proceeds rdf:type owl:Class ;
+          rdfs:subClassOf :Financial_RR ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :isInvolvedIn ;
+                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                owl:unionOf ( :Elimination
+                                                              :Use
+                                                            )
+                                              ]
+                          ] ;
+          rdfs:comment "Rol de recurso financiero que se recibe durante un proceso" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Process
+:Process rdf:type owl:Class ;
+         rdfs:subClassOf :SC_Entity ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :entails ;
+                           owl:someValuesFrom :Utilization
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :isPerformedBy ;
+                           owl:someValuesFrom :Organizational_Unit_Role
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :entails ;
+                           owl:allValuesFrom :Utilization
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :isPerformedBy ;
+                           owl:allValuesFrom :Organizational_Unit_Role
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :isSubProcessOf ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Process
+                         ] ;
+         owl:disjointWith :Process_Occurrence ,
+                          :Resource ,
+                          :Supply_Chain ;
+         rdfs:comment "Actividad o conjunto de actividades interrelacionadas logicamente, que se realizan para alcanzar un resultado epecífico y predefinido a través de la utilización de recursos" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Process_Element
+:Process_Element rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                       owl:onProperty :isSubProcessOf ;
+                                       owl:someValuesFrom :Business_Process
+                                     ] ;
+                 rdfs:subClassOf :Process ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :isComprisedOfSubProcess ;
+                                   owl:allValuesFrom :Task
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :isSubProcessOf ;
+                                   owl:allValuesFrom :Business_Process
+                                 ] ;
+                 owl:disjointWith :Task ;
+                 rdfs:comment "Actividad o estructura lógica de actividades que es un componente de un proceso de negocio" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Process_Occurrence
+:Process_Occurrence rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                          owl:onProperty :materializesProcess ;
+                                          owl:someValuesFrom :Process
+                                        ] ;
+                    rdfs:subClassOf :SC_Entity ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :materializesProcess ;
+                                      owl:allValuesFrom :Process
+                                    ] ;
+                    owl:disjointWith :Resource ,
+                                     :Supply_Chain ;
+                    rdfs:comment "Actividad o conjunto de actividades interrelacionadas que materializan un proceso" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Produce_and_Test
+:Produce_and_Test rdf:type owl:Class ;
+                  rdfs:subClassOf :E-t-O_Process_Element ;
+                  owl:disjointWith :Release_Product_to_Delivery ,
+                                   :Schedule_Production_Activities ,
+                                   :Stage_Finished_Product ,
+                                   :Waste_Disposal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Production
+:Production rdf:type owl:Class ;
+            rdfs:subClassOf :Functional_Area .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Production_Eq
+:Production_Eq rdf:type owl:Class ;
+               rdfs:subClassOf :Equipment ;
+               owl:disjointWith :Transportation_Eq .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Production_Site
+:Production_Site rdf:type owl:Class ;
+                 rdfs:subClassOf :Facility_RR ;
+                 rdfs:comment "Rol de un establecimiento que se utiliza en un proceso como lugar de emplazamiento de un ambiente productivo" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Purchasing
+:Purchasing rdf:type owl:Class ;
+            rdfs:subClassOf :Functional_Area .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Rack-jobber_Role
+:Rack-jobber_Role rdf:type owl:Class ;
+                  rdfs:subClassOf :Dealer_Role .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Railway_Terminal
+:Railway_Terminal rdf:type owl:Class ;
+                  rdfs:subClassOf :Terminal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Receive_Enter_and_Validate_Order
+:Receive_Enter_and_Validate_Order rdf:type owl:Class ;
+                                  rdfs:subClassOf :D_S_Product_Process_Element ;
+                                  owl:disjointWith :Receive_Product_from_Source_or_Make ,
+                                                   :Receive_and_Verify_Product_by_Customer ,
+                                                   :Reserve_Inventory_and_Determine_Delivery_Date ,
+                                                   :Ship_Product .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Receive_Product_from_Source_or_Make
+:Receive_Product_from_Source_or_Make rdf:type owl:Class ;
+                                     rdfs:subClassOf :D_S_Product_Process_Element ;
+                                     owl:disjointWith :Receive_and_Verify_Product_by_Customer ,
+                                                      :Reserve_Inventory_and_Determine_Delivery_Date ,
+                                                      :Ship_Product .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Receive_and_Verify_Product_by_Customer
+:Receive_and_Verify_Product_by_Customer rdf:type owl:Class ;
+                                        rdfs:subClassOf :D_S_Product_Process_Element ;
+                                        owl:disjointWith :Reserve_Inventory_and_Determine_Delivery_Date ,
+                                                         :Ship_Product .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Release_Product_to_Delivery
+:Release_Product_to_Delivery rdf:type owl:Class ;
+                             rdfs:subClassOf :E-t-O_Process_Element ;
+                             owl:disjointWith :Schedule_Production_Activities ,
+                                              :Stage_Finished_Product ,
+                                              :Waste_Disposal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Request_Excess_Product_Return_Authorisation
+:Request_Excess_Product_Return_Authorisation rdf:type owl:Class ;
+                                             rdfs:subClassOf :SR_Excess_Product_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Reseller_Role
+:Reseller_Role rdf:type owl:Class ;
+               rdfs:subClassOf :Service_Provider_Role ,
+                               [ rdf:type owl:Class ;
+                                 owl:complementOf [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :performs ;
+                                                    owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                         owl:unionOf ( :Deliver_Make-to-Order_Product
+                                                                                       :Deliver_Stocked_Product
+                                                                                       :Make
+                                                                                       :Source
+                                                                                     )
+                                                                       ]
+                                                  ]
+                               ] .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Reserch_and_Development
+:Reserch_and_Development rdf:type owl:Class ;
+                         rdfs:subClassOf :Functional_Area .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Reserve_Inventory_and_Determine_Delivery_Date
+:Reserve_Inventory_and_Determine_Delivery_Date rdf:type owl:Class ;
+                                               rdfs:subClassOf :D_S_Product_Process_Element ;
+                                               owl:disjointWith :Ship_Product .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Resource
+:Resource rdf:type owl:Class ;
+          rdfs:subClassOf :SC_Entity ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasResourceRole ;
+                            owl:someValuesFrom :Resource_Role
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasResourceRole ;
+                            owl:allValuesFrom :Resource_Role
+                          ] ;
+          owl:disjointWith :Supply_Chain ;
+          rdfs:comment "Medio físico o conceptual que brinda soporte a la ejecución de un proceso, tal como equipamiento, materias primas, información, etc." .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Resource_Role
+:Resource_Role rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isResourceRoleOf ;
+                                     owl:someValuesFrom :Resource
+                                   ] ;
+               rdfs:subClassOf owl:Thing ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :isInvolvedIn ;
+                                 owl:someValuesFrom :Utilization
+                               ] ;
+               rdfs:comment "Función o comportamiento asociado con la participación de un recurso en un proceso específico" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Responsible
+:Responsible rdf:type owl:Class ;
+             rdfs:subClassOf :Human_RR ;
+             rdfs:comment "Rol de una persona o grupo de personas que tiene la obligación y la capacidad de tomar decisiones, modificar un proceso y velar por su buen desempeño" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Retailer_Role
+:Retailer_Role rdf:type owl:Class ;
+               rdfs:subClassOf :Dealer_Role .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#SC_Entity
+:SC_Entity rdf:type owl:Class ;
+           rdfs:comment "Elemento concreto o abstracto que es parte funcional o estructural de una cadena de suministros" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#SR_Def_Product_Process_Element
+:SR_Def_Product_Process_Element rdf:type owl:Class ;
+                                rdfs:subClassOf :Source_Return_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#SR_Excess_Product_Process_Element
+:SR_Excess_Product_Process_Element rdf:type owl:Class ;
+                                   rdfs:subClassOf :Source_Return_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#SR_MRO_Product_Process_Element
+:SR_MRO_Product_Process_Element rdf:type owl:Class ;
+                                rdfs:subClassOf :Source_Return_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#S_E-t-O_Process_Element
+:S_E-t-O_Process_Element rdf:type owl:Class ;
+                         rdfs:subClassOf :Source_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#S_M-t-O_Product_Process_Element
+:S_M-t-O_Product_Process_Element rdf:type owl:Class ;
+                                 rdfs:subClassOf :Source_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#S_S_Product_Process_Element
+:S_S_Product_Process_Element rdf:type owl:Class ;
+                             rdfs:subClassOf :Source_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Sales
+:Sales rdf:type owl:Class ;
+       rdfs:subClassOf :Functional_Area .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Schedule_Production_Activities
+:Schedule_Production_Activities rdf:type owl:Class ;
+                                rdfs:subClassOf :E-t-O_Process_Element ;
+                                owl:disjointWith :Stage_Finished_Product ,
+                                                 :Waste_Disposal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Secondary_Producer_Role
+:Secondary_Producer_Role rdf:type owl:Class ;
+                         rdfs:subClassOf :Organizational_Unit_Role ,
+                                         [ rdf:type owl:Class ;
+                                           owl:complementOf [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :performs ;
+                                                              owl:someValuesFrom :Deliver_Retail_Product
+                                                            ]
+                                         ] ;
+                         owl:disjointWith :Service_Provider_Role ;
+                         rdfs:comment "Rol que asume una unidad organizacional que, en su participación en una cadena de suministros en particular, realiza actividades productivas donde se transforman materias primas y/o productos intermedios en productos de mayor valor" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Service_Provider_Role
+:Service_Provider_Role rdf:type owl:Class ;
+                       rdfs:subClassOf :Organizational_Unit_Role ,
+                                       [ rdf:type owl:Class ;
+                                         owl:complementOf [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :performs ;
+                                                            owl:someValuesFrom :Make
+                                                          ]
+                                       ] ;
+                       rdfs:comment "Rol que asume una unidad organizacional que, en su participación en una cadena de suministros específica, sólo realiza actividades relacionadas con el transporte, comercialización, almacenamiento, etc., que le agregan valor a un producto sin transformarlo de manera física o físico-química" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Ship_Product
+:Ship_Product rdf:type owl:Class ;
+              rdfs:subClassOf :D_S_Product_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Society
+:Society rdf:type owl:Class ;
+         rdfs:subClassOf :Independent_OU .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Source
+:Source rdf:type owl:Class ;
+        rdfs:subClassOf :Business_Process ;
+        owl:disjointWith :Source_Return ;
+        rdfs:comment """Proceso asociado con la solicitud, entrega, recepción y transferencia de 
+materias primas, subensambles, productos o servicios, que son adquiridos a una unidad organizacional de una cadena de suministros""" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Source_Engineer-to-Order_Product
+:Source_Engineer-to-Order_Product rdf:type owl:Class ;
+                                  rdfs:subClassOf :Source ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :isComprisedOfSubProcess ;
+                                                    owl:allValuesFrom :S_E-t-O_Process_Element
+                                                  ] ;
+                                  owl:disjointWith :Source_Make-to-Order_Product ,
+                                                   :Source_Stocked_Product ;
+                                  rdfs:comment """Proceso que consiste en la adquisición de partes, ensambles, productos o servicios especializados que son diseñados, pedidos y/o construidos en base a los requerimientos o especificaciones técnicas de una orden de un cliente en
+particular. Involucra la identificación y selección de las fuentes de suministros, la negociación con los posibles proveedores, la programación de la/s entregas,así como, la solicitud y recepción de los materiales""" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Source_Make-to-Order_Product
+:Source_Make-to-Order_Product rdf:type owl:Class ;
+                              rdfs:subClassOf :Source ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :isComprisedOfSubProcess ;
+                                                owl:allValuesFrom :S_M-t-O_Product_Process_Element
+                                              ] ;
+                              owl:disjointWith :Source_Stocked_Product ;
+                              rdfs:comment "Proceso que consiste en solicitar y recibir productos o materiales (y posiblemente configurarlos) sólo cuando son necesarios para poder satisfacer una orden de un cliente. Los recursos adquiridos mediante este proceso son habituales y/o estándares, pero se individualizan y se vinculan a órdenes específicas de producción o de los clientes" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Source_Process_Element
+:Source_Process_Element rdf:type owl:Class ;
+                        rdfs:subClassOf :Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Source_Return
+:Source_Return rdf:type owl:Class ;
+               rdfs:subClassOf :Business_Process ;
+               rdfs:comment "Proceso que consiste en la gestión “in-situ” de la devolución de un producto, o lote del mismo, a un proveedor y el envío al lugar acordado" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Source_Return_Defective_Product
+:Source_Return_Defective_Product rdf:type owl:Class ;
+                                 rdfs:subClassOf :Source_Return ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :isComprisedOfSubProcess ;
+                                                   owl:allValuesFrom :SR_Def_Product_Process_Element
+                                                 ] ;
+                                 owl:disjointWith :Source_Return_Excess_Product ,
+                                                  :Sourrce_Return_MRO_Product ;
+                                 rdfs:comment """Proceso mediante el cual se devuelven productos defectuosos al proveedor, se define su disposición y se acuerda la compensación a recibir, de acuerdo a lo que indique la garantía, las políticas de retiro de producto no conforme del
+mercado, u otras políticas similares. Se pueden considerar productos defectuosos aquéllos que no cumplen con las especificaciones (incluyendo no conformidad de la orden, tal como el retraso en la entrega o envío inapropiado)""" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Source_Return_Excess_Product
+:Source_Return_Excess_Product rdf:type owl:Class ;
+                              rdfs:subClassOf :Source_Return ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :isComprisedOfSubProcess ;
+                                                owl:allValuesFrom :SR_Excess_Product_Process_Element
+                                              ] ;
+                              owl:disjointWith :Sourrce_Return_MRO_Product ;
+                              rdfs:comment "Proceso mediante el cual se retornan al proveedor productos en exceso, envejecidos u obsoletos, de acuerdo a los términos y condiciones pactadas. El propósito del retorno de inventarios en exceso es reubicarlo en una localización en donde se pueda vender el producto que es considerado excesivo en la ubicación en la que actualmente se encuentra" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Source_Return_Process_Element
+:Source_Return_Process_Element rdf:type owl:Class ;
+                               rdfs:subClassOf :Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Source_Stocked_Product
+:Source_Stocked_Product rdf:type owl:Class ;
+                        rdfs:subClassOf :Source ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :isComprisedOfSubProcess ;
+                                          owl:allValuesFrom :S_S_Product_Process_Element
+                                        ] ;
+                        rdfs:comment """Proceso que consiste en solicitar, recibir y transferir materiales sin procesar, subensambles, productos y/o servicios, basándose en requerimientos de demanda agregada. Los recursos adquiridos mediante este proceso son
+genéricos y no están vinculados a órdenes específicas de producción o de los clientes. El propósito de este proceso es mantener un nivel predeterminado de inventario de los productos adquiridos""" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Sourrce_Return_MRO_Product
+:Sourrce_Return_MRO_Product rdf:type owl:Class ;
+                            rdfs:subClassOf :Source_Return ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :isComprisedOfPE ;
+                                              owl:allValuesFrom :SR_MRO_Product_Process_Element
+                                            ] ;
+                            rdfs:comment "Proceso mediante el cual se retornan productos o activos al proveedor para su mantenimiento, reparación o revisión, tal como se defina en los planes de mantenimiento o por la ocurrencia o anticipación de fallas o riesgos. Generalmente se espera que los activos que se gestionan a través de este proceso sean reacondicionados y que retornen al servicio" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Stage_Finished_Product
+:Stage_Finished_Product rdf:type owl:Class ;
+                        rdfs:subClassOf :E-t-O_Process_Element ;
+                        owl:disjointWith :Waste_Disposal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Store
+:Store rdf:type owl:Class ;
+       rdfs:subClassOf :Facility ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasResourceRole ;
+                         owl:someValuesFrom :Point_of_Purchase
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasResourceRole ;
+                         owl:allValuesFrom [ rdf:type owl:Class ;
+                                             owl:unionOf ( :Point_of_Purchase
+                                                           :Point_of_Storage
+                                                           :Vehicle_Terminal
+                                                         )
+                                           ]
+                       ] .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Subsidiary
+:Subsidiary rdf:type owl:Class ;
+            rdfs:subClassOf :Dependent_OU .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Supervisor
+:Supervisor rdf:type owl:Class ;
+            rdfs:subClassOf :Human_RR ;
+            rdfs:comment "Rol de una persona o grupo de personas que en un proceso monitorean y regulan a los recursos humanos que se encargan de ejecutar dicho proceso" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Supply_Chain
+:Supply_Chain rdf:type owl:Class ;
+              rdfs:subClassOf :SC_Entity ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasMember ;
+                                owl:someValuesFrom [ rdf:type owl:Class ;
+                                                     owl:unionOf ( :Primary_Producer_Role
+                                                                   :Secondary_Producer_Role
+                                                                 )
+                                                   ]
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :isTargetedAt ;
+                                owl:someValuesFrom :Market
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :provides ;
+                                owl:someValuesFrom :Material_Resource
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :isTargetedAt ;
+                                owl:allValuesFrom :Market
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasMember ;
+                                owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                owl:onClass :Organizational_Unit_Role
+                              ] ;
+              rdfs:comment "Red de unidades organizacionales que transforman y/o agregan valor a los materiales, abarcando desde la provisión de materias primas hasta la distribución final de productos en mercados específicos" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Task
+:Task rdf:type owl:Class ;
+      owl:equivalentClass [ rdf:type owl:Restriction ;
+                            owl:onProperty :isSubProcessOf ;
+                            owl:someValuesFrom [ rdf:type owl:Class ;
+                                                 owl:unionOf ( :Composite_Task
+                                                               :Process_Element
+                                                             )
+                                               ]
+                          ] ;
+      rdfs:subClassOf :Process ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :isSubProcessOf ;
+                        owl:allValuesFrom [ rdf:type owl:Class ;
+                                            owl:unionOf ( :Composite_Task
+                                                          :Process_Element
+                                                        )
+                                          ]
+                      ] ;
+      rdfs:comment "Actividad o estructura lógica de actividades que es parte de un elemento de proceso en una CS" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Temporal_Relationship
+:Temporal_Relationship rdf:type owl:Class ;
+                       owl:equivalentClass [ rdf:type owl:Class ;
+                                             owl:unionOf ( :Atomic_Temporal_Relationship
+                                                           :Composite_Temporal_Relationship
+                                                         )
+                                           ] ;
+                       rdfs:subClassOf owl:Thing ,
+                                       [ rdf:type owl:Class ;
+                                         owl:unionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty :restrains ;
+                                                                                owl:allValuesFrom :Business_Process
+                                                                              ]
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty :withRespectTo ;
+                                                                                owl:allValuesFrom :Business_Process
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ]
+                                                       [ rdf:type owl:Class ;
+                                                         owl:unionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty :restrains ;
+                                                                                                owl:allValuesFrom :Process_Element
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty :withRespectTo ;
+                                                                                                owl:allValuesFrom :Process_Element
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ]
+                                                                       [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty :restrains ;
+                                                                                                owl:allValuesFrom :Task
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty :withRespectTo ;
+                                                                                                owl:allValuesFrom :Task
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ]
+                                                                     )
+                                                       ]
+                                                     )
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :restrains ;
+                                         owl:allValuesFrom :Process
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :withRespectTo ;
+                                         owl:allValuesFrom :Process
+                                       ] ;
+                       rdfs:comment "Relación de orden parcial del tiempo de ejecucion de dos procesos, cualquiera sea su nivel de complejidad" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Terminal
+:Terminal rdf:type owl:Class ;
+          rdfs:subClassOf :Facility ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasResourceRole ;
+                            owl:someValuesFrom :Vehicle_Terminal
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasResourceRole ;
+                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                owl:unionOf ( :Cross-docking_Point
+                                                              :Point_of_Storage
+                                                              :Vehicle_Terminal
+                                                            )
+                                              ]
+                          ] .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#ThirdPL_Provider_Role
+:ThirdPL_Provider_Role rdf:type owl:Class ;
+                       rdfs:subClassOf :Service_Provider_Role .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Transportation_
+:Transportation_ rdf:type owl:Class ;
+                 rdfs:subClassOf :Material_Transfer ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasDestinationFacility ;
+                                   owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasSourceFacility ;
+                                   owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ;
+                 rdfs:comment "Traslado de un recurso durante un proceso entre dos establecimientos" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Transportation_Eq
+:Transportation_Eq rdf:type owl:Class ;
+                   rdfs:subClassOf :Equipment .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Truck_Terminal
+:Truck_Terminal rdf:type owl:Class ;
+                rdfs:subClassOf :Terminal .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Use
+:Use rdf:type owl:Class ;
+     rdfs:subClassOf :Utilization ;
+     rdfs:comment "Empleo de un recurso en un proceso en el cual no sufre transformaciones (modificación, eliminación, creación o transferencia)" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Utilization
+:Utilization rdf:type owl:Class ;
+             rdfs:subClassOf owl:Thing ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :involves ;
+                               owl:someValuesFrom :Resource_Role
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :isEntailedBy ;
+                               owl:someValuesFrom :Process
+                             ] ;
+             rdfs:comment "Manera en que un proceso afecta a un recurso que participa en una determinada actividad cumpliendo un rol en particular" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Vehicle_Terminal
+:Vehicle_Terminal rdf:type owl:Class ;
+                  rdfs:subClassOf :Facility_RR ;
+                  rdfs:comment "Rol de un establecimiento que se utiliza en un proceso como punto de inicio y/o finalización del recorrido de un transporte" .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Warehouse
+:Warehouse rdf:type owl:Class ;
+           rdfs:subClassOf :Facility ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasResourceRole ;
+                             owl:someValuesFrom :Point_of_Storage
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasResourceRole ;
+                             owl:allValuesFrom [ rdf:type owl:Class ;
+                                                 owl:unionOf ( :Point_of_Storage
+                                                               :Vehicle_Terminal
+                                                             )
+                                               ]
+                           ] .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Waste_Disposal
+:Waste_Disposal rdf:type owl:Class ;
+                rdfs:subClassOf :E-t-O_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Wholesaler_Role
+:Wholesaler_Role rdf:type owl:Class ;
+                 rdfs:subClassOf :Dealer_Role .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Assess_and_Aggregate_Delivery_Resources
+<http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Assess_and_Aggregate_Delivery_Resources> rdf:type owl:Class ;
+                                                                                                                rdfs:subClassOf :Plan_D_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Assess_and_Aggregate_Production_Resources
+<http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Assess_and_Aggregate_Production_Resources> rdf:type owl:Class ;
+                                                                                                                  rdfs:subClassOf :Plan_M_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Assess_and_Aggregate_Return_Resources
+<http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Assess_and_Aggregate_Return_Resources> rdf:type owl:Class ;
+                                                                                                              rdfs:subClassOf :Plan_R_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Assess_and_Aggregate_Source_Resources
+<http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Assess_and_Aggregate_Source_Resources> rdf:type owl:Class ;
+                                                                                                              rdfs:subClassOf :Plan_S_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Prioritize_and_Aggregate_Delivery_Requirements
+<http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Prioritize_and_Aggregate_Delivery_Requirements> rdf:type owl:Class ;
+                                                                                                                       rdfs:subClassOf :Plan_D_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Prioritize_and_Aggregate_Product_Requirements
+<http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Prioritize_and_Aggregate_Product_Requirements> rdf:type owl:Class ;
+                                                                                                                      rdfs:subClassOf :Plan_S_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Prioritize_and_Aggregate_Production_Requirements
+<http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Prioritize_and_Aggregate_Production_Requirements> rdf:type owl:Class ;
+                                                                                                                         rdfs:subClassOf :Plan_M_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Prioritize_and_Aggregate_Return_Requirements
+<http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Prioritize_and_Aggregate_Return_Requirements> rdf:type owl:Class ;
+                                                                                                                     rdfs:subClassOf :Plan_R_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Prioritize_and_Aggregate_Suply_Cahin_Requirements
+<http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Prioritize_and_Aggregate_Suply_Cahin_Requirements> rdf:type owl:Class ;
+                                                                                                                          rdfs:subClassOf :Plan_SC_Process_Element .
+
+
+###  http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Prioritize_and_Aggregate_Suppy_Chain_Resources
+<http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Prioritize_and_Aggregate_Suppy_Chain_Resources> rdf:type owl:Class ;
+                                                                                                                       rdfs:subClassOf :Plan_SC_Process_Element .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+<http://purl.org/dc/elements/1.1/> <http://purl.org/dc/terms/modified> "2012-06-14"^^xsd:date ;
+                                   <http://purl.org/dc/terms/publisher> <http://purl.org/dc/aboutdcmi#DCMI> ;
+                                   <http://purl.org/dc/terms/title> "Dublin Core Metadata Element Set, Version 1.1"@en .
+
+
+<http://purl.org/dc/elements/1.1/contributor> <http://purl.org/dc/terms/description> "The guidelines for using names of persons or organizations as creators also apply to contributors.  Typically, the name of a Contributor should be used to indicate the entity."@en ;
+                                              <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                              rdfs:comment "An entity responsible for making contributions to the resource."@en ;
+                                              rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                              rdfs:label "Contributor"@en ;
+                                              <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/contributor) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/coverage> <http://purl.org/dc/terms/description> "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names [[TGN](https://www.getty.edu/research/tools/vocabulary/tgn/index.html)]. Where appropriate, named places or time periods may be used in preference to numeric identifiers such as sets of coordinates or date ranges."@en ;
+                                           <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                           rdfs:comment "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant."@en ;
+                                           rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                           rdfs:label "Coverage"@en ;
+                                           <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/coverage) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/creator> <http://purl.org/dc/terms/description> "Examples of a Creator include a person, an organization, or a service. Typically, the name of a Creator should be used to indicate the entity."@en ;
+                                          <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                          rdfs:comment "An entity primarily responsible for making the resource."@en ;
+                                          rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                          rdfs:label "Creator"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/creator) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/date> <http://purl.org/dc/terms/description> "Date may be used to express temporal information at any level of granularity.  Recommended practice is to express the date, date/time, or period of time according to ISO 8601-1 [[ISO 8601-1](https://www.iso.org/iso-8601-date-and-time-format.html)] or a published profile of the ISO standard, such as the W3C Note on Date and Time Formats [[W3CDTF](https://www.w3.org/TR/NOTE-datetime)] or the Extended Date/Time Format Specification [[EDTF](http://www.loc.gov/standards/datetime/)].  If the full date is unknown, month and year (YYYY-MM) or just year (YYYY) may be used. Date ranges may be specified using ISO 8601 period of time specification in which start and end dates are separated by a '/' (slash) character.  Either the start or end date may be missing."@en ;
+                                       <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                       rdfs:comment "A point or period of time associated with an event in the lifecycle of the resource."@en ;
+                                       rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                       rdfs:label "Date"@en ;
+                                       <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/date) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/description> <http://purl.org/dc/terms/description> "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
+                                              <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                              rdfs:comment "An account of the resource."@en ;
+                                              rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                              rdfs:label "Description"@en ;
+                                              <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/description) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/format> <http://purl.org/dc/terms/description> "Recommended practice is to use a controlled vocabulary where available. For example, for file formats one could use the list of Internet Media Types [[MIME](https://www.iana.org/assignments/media-types/media-types.xhtml)]."@en ;
+                                         <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                         rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
+                                         rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                         rdfs:label "Format"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/format) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/identifier> <http://purl.org/dc/terms/description> "Recommended practice is to identify the resource by means of a string conforming to an identification system."@en ;
+                                             <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                             rdfs:comment "An unambiguous reference to the resource within a given context."@en ;
+                                             rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                             rdfs:label "Identifier"@en ;
+                                             <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/identifier) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/language> <http://purl.org/dc/terms/description> "Recommended practice is to use either a non-literal value representing a language from a controlled vocabulary such as ISO 639-2 or ISO 639-3, or a literal value consisting of an IETF Best Current Practice 47 [[IETF-BCP47](https://tools.ietf.org/html/bcp47)] language tag."@en ;
+                                           <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                           rdfs:comment "A language of the resource."@en ;
+                                           rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                           rdfs:label "Language"@en ;
+                                           <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/language) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/publisher> <http://purl.org/dc/terms/description> "Examples of a Publisher include a person, an organization, or a service. Typically, the name of a Publisher should be used to indicate the entity."@en ;
+                                            <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                            rdfs:comment "An entity responsible for making the resource available."@en ;
+                                            rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                            rdfs:label "Publisher"@en ;
+                                            <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/publisher) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/relation> <http://purl.org/dc/terms/description> "Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided."@en ;
+                                           <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                           rdfs:comment "A related resource."@en ;
+                                           rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                           rdfs:label "Relation"@en ;
+                                           <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/relation) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/rights> <http://purl.org/dc/terms/description> "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights."@en ;
+                                         <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                         rdfs:comment "Information about rights held in and over the resource."@en ;
+                                         rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                         rdfs:label "Rights"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/rights) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/source> <http://purl.org/dc/terms/description> "The described resource may be derived from the related resource in whole or in part. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system."@en ;
+                                         <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                         rdfs:comment "A related resource from which the described resource is derived."@en ;
+                                         rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                         rdfs:label "Source"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/source) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/subject> <http://purl.org/dc/terms/description> "Typically, the subject will be represented using keywords, key phrases, or classification codes.  Recommended best practice is to use a controlled vocabulary."@en ;
+                                          <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                          rdfs:comment "The topic of the resource."@en ;
+                                          rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                          rdfs:label "Subject"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/subject) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/title> <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                        rdfs:comment "A name given to the resource."@en ;
+                                        rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                        rdfs:label "Title"@en ;
+                                        <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/title) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/type> <http://purl.org/dc/terms/description> "Recommended practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [[DCMI-TYPE](http://dublincore.org/documents/dcmi-type-vocabulary/)]. To describe the file format, physical medium, or dimensions of the resource, use the Format element."@en ;
+                                       <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                       rdfs:comment "The nature or genre of the resource."@en ;
+                                       rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                       rdfs:label "Type"@en ;
+                                       <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/type) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Functional_Area
+                :Functional_SubArea
+                :Organizational_Unit
+                :Organizational_Unit_Role
+                :Process
+                :Process_Occurrence
+                :Resource
+                :Supply_Chain
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Market
+                :Resource_Role
+                :SC_Entity
+                :Temporal_Relationship
+                :Utilization
+              )
+] .
+
+
+###  Generated by the OWL API (version 5.1.14) https://github.com/owlcs/owlapi/
