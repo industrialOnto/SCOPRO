@@ -1,0 +1,874 @@
+{
+  "@context" : {
+    "isFuntionalSubAreaOf" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isFuntionalSubAreaOf",
+      "@type" : "@id"
+    },
+    "Produce_and_Test" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Produce_and_Test"
+    },
+    "Purchasing" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Purchasing"
+    },
+    "_Prioritize_and_Aggregate_Delivery_Requirements" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Prioritize_and_Aggregate_Delivery_Requirements"
+    },
+    "Ship_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Ship_Product"
+    },
+    "Source_Return_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Source_Return_Process_Element"
+    },
+    "Identify_Excess_Product_Condition" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify_Excess_Product_Condition"
+    },
+    "Material_Input" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Material_Input"
+    },
+    "isSourceFacilityOf" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isSourceFacilityOf",
+      "@type" : "@id"
+    },
+    "Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Process_Element"
+    },
+    "Make_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Make_Process_Element"
+    },
+    "isRelativeTo" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isRelativeTo",
+      "@type" : "@id"
+    },
+    "Receive_and_Verify_Product_by_Customer" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Receive_and_Verify_Product_by_Customer"
+    },
+    "Point_of_Storage" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Point_of_Storage"
+    },
+    "Load_Product_and_Generate_Shipping_Docs" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Load_Product_and_Generate_Shipping_Docs"
+    },
+    "Terminal" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Terminal"
+    },
+    "Manage_WIP_Transportation" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Manage_WIP_Transportation"
+    },
+    "_Assess_and_Aggregate_Source_Resources" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Assess_and_Aggregate_Source_Resources"
+    },
+    "hasElement" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasElement",
+      "@type" : "@id"
+    },
+    "Plan_R_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_R_Process_Element"
+    },
+    "license" : {
+      "@id" : "http://purl.org/dc/terms/license"
+    },
+    "Material_Output" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Material_Output"
+    },
+    "Source_Return_Excess_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Source_Return_Excess_Product"
+    },
+    "hasResourceRole" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasResourceRole",
+      "@type" : "@id"
+    },
+    "Store" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Store"
+    },
+    "isORoleOf" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isORoleOf",
+      "@type" : "@id"
+    },
+    "Use" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Use"
+    },
+    "Functional_SubArea" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Functional_SubArea"
+    },
+    "SR_MRO_Product_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#SR_MRO_Product_Process_Element"
+    },
+    "Equal" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Equal"
+    },
+    "Waste_Disposal" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Waste_Disposal"
+    },
+    "Truck_Terminal" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Truck_Terminal"
+    },
+    "Finalize_Production_Engineering" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Finalize_Production_Engineering"
+    },
+    "Manage_Supply_Chain_Make_Risk" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Manage_Supply_Chain_Make_Risk"
+    },
+    "Customer_Role" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Customer_Role"
+    },
+    "Information_Resource" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Information_Resource"
+    },
+    "Wholesaler_Role" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Wholesaler_Role"
+    },
+    "issued" : {
+      "@id" : "http://purl.org/dc/terms/issued"
+    },
+    "Equipment" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Equipment"
+    },
+    "Branch" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Branch"
+    },
+    "Production_Site" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Production_Site"
+    },
+    "Thing" : {
+      "@id" : "http://www.w3.org/2002/07/owl#Thing"
+    },
+    "Passive_Object" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Passive_Object"
+    },
+    "Business_Process" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Business_Process"
+    },
+    "Production_Eq" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Production_Eq"
+    },
+    "Package" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Package"
+    },
+    "Composite_Task" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Composite_Task"
+    },
+    "Source" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Source"
+    },
+    "Modification" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Modification"
+    },
+    "Source_Return_Defective_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Source_Return_Defective_Product"
+    },
+    "Deliver_Return_Excess_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Return_Excess_Product"
+    },
+    "Plan_Return" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_Return"
+    },
+    "Manage_Make_Equipements_and_Facilities" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Manage_Make_Equipements_and_Facilities"
+    },
+    "isResourceRoleOf" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isResourceRoleOf",
+      "@type" : "@id"
+    },
+    "D_R_Product_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#D_R_Product_Process_Element"
+    },
+    "isPartOfCT" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isPartOfCT",
+      "@type" : "@id"
+    },
+    "Source_Make-to-Order_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Source_Make-to-Order_Product"
+    },
+    "FourthPL_Provider_Role" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#FourthPL_Provider_Role"
+    },
+    "Issue_Sourced_or_In-Process_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Issue_Sourced_or_In-Process_Product"
+    },
+    "M-t-O_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#M-t-O_Process_Element"
+    },
+    "_Prioritize_and_Aggregate_Suppy_Chain_Resources" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Prioritize_and_Aggregate_Suppy_Chain_Resources"
+    },
+    "Receive_Enter_and_Validate_Order" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Receive_Enter_and_Validate_Order"
+    },
+    "S_M-t-O_Product_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#S_M-t-O_Product_Process_Element"
+    },
+    "Deliver_Stocked_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Stocked_Product"
+    },
+    "_Assess_and_Aggregate_Return_Resources" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Assess_and_Aggregate_Return_Resources"
+    },
+    "Point_of_Purchase" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Point_of_Purchase"
+    },
+    "Make" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Make"
+    },
+    "Intermediary_Role" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Intermediary_Role"
+    },
+    "hasOverlapsAsPart" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasOverlapsAsPart",
+      "@type" : "@id"
+    },
+    "Supervisor" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Supervisor"
+    },
+    "provides" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#provides",
+      "@type" : "@id"
+    },
+    "_Prioritize_and_Aggregate_Product_Requirements" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Prioritize_and_Aggregate_Product_Requirements"
+    },
+    "Responsible" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Responsible"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "obtainsResourceR" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#obtainsResourceR",
+      "@type" : "@id"
+    },
+    "Dependent_OU" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Dependent_OU"
+    },
+    "Source_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Source_Process_Element"
+    },
+    "Material_RR" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Material_RR"
+    },
+    "SC_Entity" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#SC_Entity"
+    },
+    "Plan_M_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_M_Process_Element"
+    },
+    "Business_Group" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Business_Group"
+    },
+    "Retailer_Role" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Retailer_Role"
+    },
+    "ThirdPL_Provider_Role" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#ThirdPL_Provider_Role"
+    },
+    "S_S_Product_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#S_S_Product_Process_Element"
+    },
+    "Deliver_Make-to-Order_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Make-to-Order_Product"
+    },
+    "Rack-jobber_Role" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Rack-jobber_Role"
+    },
+    "Process_Occurrence" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Process_Occurrence"
+    },
+    "Deliver_Return_MRO_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Return_MRO_Product"
+    },
+    "Plant" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plant"
+    },
+    "Broker_Role" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Broker_Role"
+    },
+    "During" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#During"
+    },
+    "Movement" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Movement"
+    },
+    "Resource_Role" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Resource_Role"
+    },
+    "Deliver_Engineer-to-Order_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Engineer-to-Order_Product"
+    },
+    "Deliver_Return_Defective_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Return_Defective_Product"
+    },
+    "Plan_Make" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_Make"
+    },
+    "Temporal_Relationship" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Temporal_Relationship"
+    },
+    "hasOURole" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasOURole",
+      "@type" : "@id"
+    },
+    "Material_Movement_Eq" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Material_Movement_Eq"
+    },
+    "involves" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#involves",
+      "@type" : "@id"
+    },
+    "Subsidiary" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Subsidiary"
+    },
+    "Proceeds" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Proceeds"
+    },
+    "_Prioritize_and_Aggregate_Return_Requirements" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Prioritize_and_Aggregate_Return_Requirements"
+    },
+    "Defective_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Defective_Product"
+    },
+    "Financial_Resource" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Financial_Resource"
+    },
+    "Railway_Terminal" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Railway_Terminal"
+    },
+    "isComprisedOfST" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isComprisedOfST",
+      "@type" : "@id"
+    },
+    "isEntailedBy" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isEntailedBy",
+      "@type" : "@id"
+    },
+    "isPartOfTempRelat" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isPartOfTempRelat",
+      "@type" : "@id"
+    },
+    "Cross-docking_Point" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Cross-docking_Point"
+    },
+    "hasFuntionalSubArea" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasFuntionalSubArea",
+      "@type" : "@id"
+    },
+    "Freight_Forwarder_Role" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Freight_Forwarder_Role"
+    },
+    "isDestinationFacilityOf" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isDestinationFacilityOf",
+      "@type" : "@id"
+    },
+    "hasDuringAsPart" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasDuringAsPart",
+      "@type" : "@id"
+    },
+    "isMemberOf" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isMemberOf",
+      "@type" : "@id"
+    },
+    "DR_Def_Product_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#DR_Def_Product_Process_Element"
+    },
+    "restrains" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#restrains",
+      "@type" : "@id"
+    },
+    "Plan_Deliver" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_Deliver"
+    },
+    "note" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#note"
+    },
+    "Transportation_Eq" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Transportation_Eq"
+    },
+    "IsTargetOf" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#IsTargetOf",
+      "@type" : "@id"
+    },
+    "Intermodal_Seller_Role" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Intermodal_Seller_Role"
+    },
+    "Source_Engineer-to-Order_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Source_Engineer-to-Order_Product"
+    },
+    "Transportation_" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Transportation_"
+    },
+    "Warehouse" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Warehouse"
+    },
+    "Make-to-Stock" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Make-to-Stock"
+    },
+    "D_E-t-O_Product_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#D_E-t-O_Product_Process_Element"
+    },
+    "hasDestinationFacility" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasDestinationFacility",
+      "@type" : "@id"
+    },
+    "isPartOfBP" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isPartOfBP",
+      "@type" : "@id"
+    },
+    "Manage_WIP_In-Process_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Manage_WIP_In-Process_Product"
+    },
+    "isComprisedOfTask" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isComprisedOfTask",
+      "@type" : "@id"
+    },
+    "isResourceRProvidedBy" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isResourceRProvidedBy",
+      "@type" : "@id"
+    },
+    "creator" : {
+      "@id" : "http://purl.org/dc/elements/1.1/creator"
+    },
+    "Pick_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Pick_Product"
+    },
+    "Plan_S_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_S_Process_Element"
+    },
+    "Deliver_Retail_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Retail_Product"
+    },
+    "Plan_Supply_Chain" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_Supply_Chain"
+    },
+    "Plan_Source" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_Source"
+    },
+    "isPerformedBySubArea" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isPerformedBySubArea",
+      "@type" : "@id"
+    },
+    "hasSourceFacility" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasSourceFacility",
+      "@type" : "@id"
+    },
+    "Deliver_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Process_Element"
+    },
+    "_Prioritize_and_Aggregate_Production_Requirements" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Prioritize_and_Aggregate_Production_Requirements"
+    },
+    "Manage_Make_Regulatory_Environment" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Manage_Make_Regulatory_Environment"
+    },
+    "hasMember" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasMember",
+      "@type" : "@id"
+    },
+    "Facility" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Facility"
+    },
+    "Secondary_Producer_Role" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Secondary_Producer_Role"
+    },
+    "Executor" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Executor"
+    },
+    "Atomic_Task" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Atomic_Task"
+    },
+    "Business_Unit" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Business_Unit"
+    },
+    "isRestrainedBy" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isRestrainedBy",
+      "@type" : "@id"
+    },
+    "hasBeforAsPart" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasBeforAsPart",
+      "@type" : "@id"
+    },
+    "E-t-O_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#E-t-O_Process_Element"
+    },
+    "SR_Def_Product_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#SR_Def_Product_Process_Element"
+    },
+    "Material_Resource" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Material_Resource"
+    },
+    "hasFunctionalArea" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasFunctionalArea",
+      "@type" : "@id"
+    },
+    "Functional_Area" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Functional_Area"
+    },
+    "isPerformedBy" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isPerformedBy",
+      "@type" : "@id"
+    },
+    "Corporation" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Corporation"
+    },
+    "Organizational_Unit" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Organizational_Unit"
+    },
+    "Overlaps" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Overlaps"
+    },
+    "hasTempRelatAsPart" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasTempRelatAsPart",
+      "@type" : "@id"
+    },
+    "Facility_RR" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Facility_RR"
+    },
+    "Deliver_Return_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Return_Process_Element"
+    },
+    "Sales" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Sales"
+    },
+    "Creation" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Creation"
+    },
+    "_Assess_and_Aggregate_Delivery_Resources" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Assess_and_Aggregate_Delivery_Resources"
+    },
+    "isFunctionalAreaOf" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isFunctionalAreaOf",
+      "@type" : "@id"
+    },
+    "Cross-docking_Facility" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Cross-docking_Facility"
+    },
+    "Independent_OU" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Independent_OU"
+    },
+    "Company" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Company"
+    },
+    "Input" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Input"
+    },
+    "Human_RR" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Human_RR"
+    },
+    "Manage_Make_Information" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Manage_Make_Information"
+    },
+    "hasEqualAsPart" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasEqualAsPart",
+      "@type" : "@id"
+    },
+    "Actualization" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Actualization"
+    },
+    "Plan" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan"
+    },
+    "Multimodal_Terminal" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Multimodal_Terminal"
+    },
+    "hasDependentOU" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasDependentOU",
+      "@type" : "@id"
+    },
+    "isDefinedBy" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+    },
+    "entails" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#entails",
+      "@type" : "@id"
+    },
+    "Primary_Producer_Role" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Primary_Producer_Role"
+    },
+    "_Prioritize_and_Aggregate_Suply_Cahin_Requirements" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Prioritize_and_Aggregate_Suply_Cahin_Requirements"
+    },
+    "Composite_Temporal_Relationship" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Composite_Temporal_Relationship"
+    },
+    "Society" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Society"
+    },
+    "Vehicle_Terminal" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Vehicle_Terminal"
+    },
+    "isComposedOfPE_ReserveInventoryAndDetermineDeliveryDate" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isComposedOfPE_ReserveInventoryAndDetermineDeliveryDate",
+      "@type" : "@id"
+    },
+    "isInvolvedIn" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isInvolvedIn",
+      "@type" : "@id"
+    },
+    "Reseller_Role" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Reseller_Role"
+    },
+    "withRespectTo" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#withRespectTo",
+      "@type" : "@id"
+    },
+    "M-t-S_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#M-t-S_Process_Element"
+    },
+    "S_E-t-O_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#S_E-t-O_Process_Element"
+    },
+    "materializesProcess" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#materializesProcess",
+      "@type" : "@id"
+    },
+    "Stage_Finished_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Stage_Finished_Product"
+    },
+    "title" : {
+      "@id" : "http://purl.org/dc/terms/title"
+    },
+    "Port_Terminal" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Port_Terminal"
+    },
+    "D_S_Product_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#D_S_Product_Process_Element"
+    },
+    "Distribution_Center" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Distribution_Center"
+    },
+    "Distributor_Role" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Distributor_Role"
+    },
+    "Financial_RR" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Financial_RR"
+    },
+    "Marketing" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Marketing"
+    },
+    "Meets" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Meets"
+    },
+    "isTargetedAt" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isTargetedAt",
+      "@type" : "@id"
+    },
+    "Sourrce_Return_MRO_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Sourrce_Return_MRO_Product"
+    },
+    "Payment" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Payment"
+    },
+    "publisher" : {
+      "@id" : "http://purl.org/dc/terms/publisher"
+    },
+    "Make-to-Order" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Make-to-Order"
+    },
+    "licence" : {
+      "@id" : "http://purl.org/dc/elements/1.1/licence"
+    },
+    "Load" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Load"
+    },
+    "isComprisedOfPE" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isComprisedOfPE",
+      "@type" : "@id"
+    },
+    "Engineer-to-Order" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Engineer-to-Order"
+    },
+    "Elimination" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Elimination"
+    },
+    "Supply_Chain" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Supply_Chain"
+    },
+    "Manage_Production_Rules" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Manage_Production_Rules"
+    },
+    "modified" : {
+      "@id" : "http://purl.org/dc/terms/modified"
+    },
+    "Plan_SC_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_SC_Process_Element"
+    },
+    "DR_MRO_Product_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#DR_MRO_Product_Process_Element"
+    },
+    "Deliver_Return" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver_Return"
+    },
+    "isComposedOfPE_ShipProduct" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isComposedOfPE_ShipProduct",
+      "@type" : "@id"
+    },
+    "Plan_D_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_D_Process_Element"
+    },
+    "Reserch_and_Development" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Reserch_and_Development"
+    },
+    "Source_Stocked_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Source_Stocked_Product"
+    },
+    "D_M-t-O_Product_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#D_M-t-O_Product_Process_Element"
+    },
+    "isResourceRObtainedBy" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isResourceRObtainedBy",
+      "@type" : "@id"
+    },
+    "Process" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Process"
+    },
+    "Logistics" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Logistics"
+    },
+    "Capital_Asset" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Capital_Asset"
+    },
+    "Material_Transfer" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Material_Transfer"
+    },
+    "subAreaPerforms" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#subAreaPerforms",
+      "@type" : "@id"
+    },
+    "SR_Excess_Product_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#SR_Excess_Product_Process_Element"
+    },
+    "Resource" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Resource"
+    },
+    "Receive_Product_from_Source_or_Make" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Receive_Product_from_Source_or_Make"
+    },
+    "isDependentOUOf" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isDependentOUOf",
+      "@type" : "@id"
+    },
+    "Output" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Output"
+    },
+    "providesResourceR" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#providesResourceR",
+      "@type" : "@id"
+    },
+    "Request_Excess_Product_Return_Authorisation" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Request_Excess_Product_Return_Authorisation"
+    },
+    "Source_Return" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Source_Return"
+    },
+    "Service_Provider_Role" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Service_Provider_Role"
+    },
+    "isSubProcessOf" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isSubProcessOf",
+      "@type" : "@id"
+    },
+    "isComprisedOfSubProcess" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isComprisedOfSubProcess",
+      "@type" : "@id"
+    },
+    "comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "performs" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#performs",
+      "@type" : "@id"
+    },
+    "Manage_Production_Network" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Manage_Production_Network"
+    },
+    "Reserve_Inventory_and_Determine_Delivery_Date" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Reserve_Inventory_and_Determine_Delivery_Date"
+    },
+    "Schedule_Production_Activities" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Schedule_Production_Activities"
+    },
+    "isProvidedBy" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isProvidedBy",
+      "@type" : "@id"
+    },
+    "contributor" : {
+      "@id" : "http://purl.org/dc/elements/1.1/contributor"
+    },
+    "areaPerforms" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#areaPerforms",
+      "@type" : "@id"
+    },
+    "Before" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Before"
+    },
+    "hasMeetsAsPart" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#hasMeetsAsPart",
+      "@type" : "@id"
+    },
+    "Enterprise" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Enterprise"
+    },
+    "Deliver" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Deliver"
+    },
+    "Atomic_Temporal_Relationship" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Atomic_Temporal_Relationship"
+    },
+    "_Assess_and_Aggregate_Production_Resources" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Identify,_Assess_and_Aggregate_Production_Resources"
+    },
+    "Organizational_Unit_Role" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Organizational_Unit_Role"
+    },
+    "isDependentSubOUOf" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isDependentSubOUOf",
+      "@type" : "@id"
+    },
+    "Plan_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Plan_Process_Element"
+    },
+    "Disposition_Excess_Product" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Disposition_Excess_Product"
+    },
+    "Dealer_Role" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Dealer_Role"
+    },
+    "Task" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Task"
+    },
+    "Production" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Production"
+    },
+    "description" : {
+      "@id" : "http://purl.org/dc/terms/description"
+    },
+    "Market" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Market"
+    },
+    "Human_Resource" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Human_Resource"
+    },
+    "Carrier_Role" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Carrier_Role"
+    },
+    "Utilization" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Utilization"
+    },
+    "Manage_Production_Performance" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Manage_Production_Performance"
+    },
+    "Release_Product_to_Delivery" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Release_Product_to_Delivery"
+    },
+    "Finance" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Finance"
+    },
+    "Information_RR" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#Information_RR"
+    },
+    "DR_Excess_Product_Process_Element" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#DR_Excess_Product_Process_Element"
+    },
+    "isPartOfPE" : {
+      "@id" : "http://www.semanticweb.org/indonto/ontologies/2014/0/SCOPRO#isPartOfPE",
+      "@type" : "@id"
+    }
+  }
+}
